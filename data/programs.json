@@ -1,0 +1,116 @@
+{
+  "programs": [
+    {
+      "program_id": "data-analytics",
+      "name": "Data Analytics",
+      "description": "A 12-week data analytics program that teaches Excel, SQL, Power BI, and Python for real business analysis, dashboarding, and reporting.",
+      "suitable_for": [
+        "beginners",
+        "career changers",
+        "people who enjoy working with data and numbers",
+        "students who like structured problem solving",
+        "people who prefer analysis over building software"
+      ],
+      "prerequisites": [
+        "basic computer literacy",
+        "comfortable using a browser and spreadsheet software",
+        "willingness to practise consistently",
+        "no advanced coding background required"
+      ],
+      "skills": [
+        "excel",
+        "google sheets",
+        "sql",
+        "power bi",
+        "python",
+        "data cleaning",
+        "data visualization",
+        "dashboard design",
+        "statistical analysis",
+        "reporting"
+      ],
+      "learning_outcomes": [
+        "clean and prepare data",
+        "analyze datasets with excel and sql",
+        "build interactive dashboards in power bi",
+        "use python for data analysis and automation",
+        "present data insights clearly",
+        "complete a capstone analytics project"
+      ],
+      "career_directions": [
+        "data analyst",
+        "business intelligence analyst",
+        "reporting analyst",
+        "operations analyst",
+        "junior insights analyst",
+        "data reporting specialist"
+      ],
+      "duration": "12 weeks (3 months)"
+    },
+    {
+      "program_id": "software-development",
+      "name": "Software Development",
+      "description": "A practical program focused on coding, problem solving, and building software solutions with a structured learning path.",
+      "suitable_for": [
+        "people who enjoy building things",
+        "problem solvers",
+        "beginners ready to learn coding"
+      ],
+      "prerequisites": [
+        "basic digital literacy",
+        "willingness to practise coding"
+      ],
+      "skills": [
+        "programming",
+        "problem solving",
+        "software engineering",
+        "debugging",
+        "web development"
+      ],
+      "learning_outcomes": [
+        "build software projects",
+        "write clean code",
+        "solve programming problems"
+      ],
+      "career_directions": [
+        "software developer",
+        "web developer",
+        "junior engineer"
+      ],
+      "duration": "12 weeks"
+    },
+    {
+      "program_id": "uiux-design",
+      "name": "UI/UX Design",
+      "description": "A design track focused on user research, interface design, wireframes, prototyping, and design thinking.",
+      "suitable_for": [
+        "creative people",
+        "visual thinkers",
+        "people interested in product design"
+      ],
+      "prerequisites": [
+        "basic computer literacy",
+        "interest in design and user experience"
+      ],
+      "skills": [
+        "design thinking",
+        "wireframing",
+        "prototyping",
+        "user research",
+        "ui design",
+        "ux design"
+      ],
+      "learning_outcomes": [
+        "design interfaces",
+        "prototype user experiences",
+        "create user-centered design solutions"
+      ],
+      "career_directions": [
+        "product designer",
+        "ui designer",
+        "ux designer"
+      ],
+      "duration": "12 weeks"
+    }
+  ]
+}

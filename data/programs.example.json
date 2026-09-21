@@ -1,0 +1,16 @@
+{
+  "_comment": "TEMPLATE — not real data. Copy this file to data/programs.json and replace every field with TechieStart's actual program information (from the Participant Handbook / curriculum docs / program team). The Pathfinder's matching engine will not produce recommendations until data/programs.json exists with real entries — see app/bot/pathfinder.py:load_program_catalog(). Add as many program objects as TechieStart actually offers; there is no fixed count.",
+  "programs": [
+    {
+      "program_id": "REPLACE_WITH_REAL_PROGRAM_ID",
+      "name": "REPLACE_WITH_REAL_PROGRAM_NAME",
+      "description": "One or two sentences describing the program, taken from real TechieStart material.",
+      "suitable_for": ["e.g. beginners with no coding background", "e.g. people who enjoy structured, visual work"],
+      "prerequisites": ["e.g. none", "e.g. basic computer literacy", "e.g. a laptop and Gmail account"],
+      "skills": ["e.g. spreadsheets", "e.g. data visualization", "e.g. SQL"],
+      "learning_outcomes": ["e.g. clean and analyse a dataset", "e.g. build a dashboard"],
+      "career_directions": ["e.g. data analyst", "e.g. business intelligence associate"],
+      "duration": "e.g. 3 months"
+    }
+  ]
+}

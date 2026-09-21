@@ -1,0 +1,51 @@
+﻿Question,Answer,Category,Intent
+Why is there a fee if it's a scholarship?,"The ₦10,000 fee is an admin fee, not tuition. Tuition is fully sponsored by ICL. The fee covers your seat for the full 3 months, learning materials, and Google Classroom access.",Fees,scholarship_fee
+"Is the ₦10,000 tuition?","No. The ₦10,000 payment is an administrative fee. Tuition is fully sponsored by ICL.",Fees,tuition_clarification
+"What does the ₦10,000 admin fee cover?","It covers your seat for the full 3 months, learning materials, and Google Classroom access.",Fees,admin_fee_coverage
+Does paying the admin fee reserve my seat?,"Yes. Once payment is confirmed, the fee reserves your seat for the cohort.",Fees,seat_confirmation
+Why does TechieStart charge an admin fee?,"The fee covers administration, your seat, learning materials, and Google Classroom access while tuition remains fully sponsored.",Fees,reason_for_fee
+Is TechieStart legitimate?,"Yes. TechieStart is a program of IKECHIM Consults Limited (ICL), a CAC and FIRS-registered company. Its registration can be publicly verified.",Trust & Legitimacy,legitimacy
+Who runs TechieStart?,TechieStart is a program of IKECHIM Consults Limited (ICL).,Trust & Legitimacy,program_operator
+Is ICL registered?,"Yes. ICL is a CAC and FIRS-registered company, and its registration can be publicly verified.",Trust & Legitimacy,company_registration
+Can I verify ICL's registration?,Yes. ICL's CAC and FIRS registration can be verified publicly.,Trust & Legitimacy,registration_verification
+Are TechieStart instructors qualified?,"TechieStart instructors are working professionals, including two instructors who are CPN certified.",Instructors,instructor_qualifications
+Are the instructors working professionals?,Yes. TechieStart is taught by working professionals with practical industry experience.,Instructors,working_professionals
+Are any instructors CPN certified?,Yes. Two of the instructors are CPN certified.,Instructors,cpn_certification
+What if I have a question about my payment?,Contact the TechieStart support line provided on the program page. A person will assist you.,Support,payment_support
+Is there human support?,"Yes. If anything about your application or payment is unclear, you can contact the support line on the program page and speak with a person.",Support,human_support
+What happens after I pay?,"Once payment is confirmed, you will receive an automated email with the Google Classroom join link for your selected track.",Enrollment,post_payment
+How will I receive my Google Classroom link?,Your Google Classroom join link will be sent by automated email after payment is confirmed.,Enrollment,classroom_link
+When will I receive the Classroom link?,"The link is usually sent within the stated processing window after payment confirmation. If it has not arrived after that window, contact support.",Enrollment,email_timing
+What if I don't receive my Classroom link?,"If the email has not arrived within the stated processing window, contact the TechieStart support line.",Support,missing_classroom_link
+Do I need a Google account?,Yes. You need a Google account to accept the Google Classroom invitation.,Requirements,google_account
+Do I need a Gmail address?,Yes. Use a Gmail address when registering so you can access Google Classroom.,Requirements,gmail_requirement
+Why do I need Gmail?,A Google account is required to accept your Google Classroom invitation and access your track.,Requirements,google_classroom_access
+Is Google Classroom included?,"Yes. Google Classroom access is included as part of the ₦10,000 administrative fee.",Learning Access,classroom_access
+Are learning materials included?,"Yes. Learning materials are included in what the ₦10,000 admin fee covers.",Learning Access,learning_materials
+Does the admin fee cover all 3 months?,Yes. The fee covers your seat for the full 3-month cohort.,Fees,three_month_coverage
+"Is the ₦10,000 fee refundable?","The ₦10,000 admin fee is non-refundable once payment is confirmed.",Refunds,refund_policy
+Why is the admin fee non-refundable?,"Once confirmed, the fee reserves your seat, materials, and Google Classroom access for the cohort.",Refunds,non_refundable_reason
+What happens if there is a problem with my access?,"If there is a delay or access problem, TechieStart will work to resolve it by getting you enrolled.",Support,access_problem
+Is my seat guaranteed if there is an access delay?,"Yes. Your seat is guaranteed, and any access issue should be resolved by getting you enrolled.",Enrollment,seat_guarantee
+Are duplicate payments refundable?,Yes. Refunds are issued for duplicate charges.,Refunds,duplicate_payment
+What if I am charged twice?,"If you are charged twice, the duplicate or erroneous charge is eligible for a refund.",Refunds,double_charge
+Are erroneous charges refundable?,Yes. Refunds are issued for duplicate or erroneous charges.,Refunds,erroneous_charge
+Can I cancel after paying?,"The ₦10,000 admin fee is non-refundable once payment is confirmed, except for duplicate or erroneous charges.",Refunds,cancellation
+Why does the fee reserve a seat?,It confirms your place in the cohort and helps ensure that participants joining intend to complete the program.,Program Commitment,seat_reservation
+Why does the fee help with cohort commitment?,The admin fee helps ensure that people joining the cohort intend to finish the full program.,Program Commitment,cohort_commitment
+Is the fee meant to discourage people from dropping out?,It helps ensure that participants joining the cohort are serious about completing the program.,Program Commitment,participant_commitment
+How long is TechieStart?,TechieStart runs for 3 months.,Program Details,program_duration
+Is tuition fully sponsored?,Yes. Tuition is fully sponsored by ICL.,Scholarship,tuition_sponsorship
+What does fully sponsored mean?,"It means you do not pay tuition for the program. The ₦10,000 payment is an administrative fee.",Scholarship,fully_sponsored
+Does the scholarship cover tuition?,Yes. Tuition is fully sponsored by ICL.,Scholarship,scholarship_coverage
+When will I receive my certificate?,Certificates are issued by email at the end of the cohort to participants who meet the completion requirements.,Certificates,certificate_timing
+How do I qualify for a certificate?,You must complete your track's coursework and submit the final project to receive the certificate.,Certificates,certificate_requirements
+How will my certificate be delivered?,Certificates are issued by email at the end of the cohort.,Certificates,certificate_delivery
+Do I need to complete the coursework for a certificate?,Yes. Participants must complete their track's coursework to qualify for the certificate.,Certificates,coursework_completion
+Do I need to submit a final project?,Yes. Submitting the final project is part of the requirements for receiving the certificate.,Certificates,final_project
+Who receives a TechieStart certificate?,Participants who complete their track's coursework and submit the final project receive a certificate by email at the end of the cohort.,Certificates,certificate_eligibility
+Is the certificate automatic after payment?,No. The certificate is issued at the end of the cohort after you complete the required coursework and submit the final project.,Certificates,certificate_not_automatic
+What happens if I don't complete my coursework?,You may not qualify for the certificate because completion of your track's coursework is a certificate requirement.,Certificates,incomplete_coursework
+What happens if I don't submit the final project?,You may not qualify for the certificate because submission of the final project is required.,Certificates,missing_final_project
+Can I get a refund if I change my mind?,"The admin fee is non-refundable once payment is confirmed, except for duplicate or erroneous charges.",Refunds,change_of_mind
+Can I contact support before making payment?,"Yes. If you need clarification about the application or payment before paying, use the TechieStart support line provided on the program page.",Support,pre_payment_support

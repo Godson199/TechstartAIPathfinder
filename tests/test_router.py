@@ -105,6 +105,30 @@ class RetrieveContextTests(unittest.TestCase):
         self.assertIn("Data Analysis", reply)
         self.assertNotIn("I am not sure about the full list of programs offered", reply)
 
+    def test_program_list_question_ignores_retrieved_markdown_headings(self):
+        faq_context = (
+            "# 11. Available Programmes\n"
+            "The available tracks are:\n"
+            "1. Gen AI Content Creation\n"
+            "2. Front-End Web Development\n"
+            "3. AI & Machine Learning\n"
+            "4. Data Analysis\n"
+            "# 3. Programme Fee\n"
+            "# Explaining Pathfinder Results When presenting\n"
+            "State, and briefly explain why it matches."
+        )
+
+        reply = router._build_program_list_reply(
+            "What programs do you offer?",
+            faq_context,
+        )
+
+        self.assertIn("Gen AI Content Creation", reply)
+        self.assertIn("Data Analysis", reply)
+        self.assertNotIn("Available Programmes", reply)
+        self.assertNotIn("Programme Fee", reply)
+        self.assertNotIn("Explaining Pathfinder Results", reply)
+
 
 if __name__ == "__main__":
     unittest.main()

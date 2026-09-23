@@ -480,6 +480,17 @@ def retrieve_context(
     )
 
 
+def retrieve_program_list_context(
+    db: Session,
+    query: str,
+) -> str:
+
+    return retrieve_context(
+        db,
+        f"{query} TechieStart available tracks programme list",
+    )
+
+
 # ============================================================
 # GEMINI HISTORY
 # ============================================================
@@ -688,6 +699,9 @@ def _extract_program_list_from_context(
 
             capturing = True
 
+        if stripped.startswith("#"):
+            continue
+
         inline_items = re.findall(
             r"(?:^|\s)(?:\d+[.)]|[-*])\s+(.+?)(?=\s+(?:\d+[.)]|[-*])\s+|$)",
             stripped,
@@ -713,12 +727,6 @@ def _extract_program_list_from_context(
             "**q:" in lower
             or "**a:" in lower
         ):
-            continue
-
-        if stripped.startswith("#"):
-
-            add_candidate(stripped.lstrip("#"))
-
             continue
 
         match = re.match(
@@ -1285,7 +1293,7 @@ def chat(
                 rag_question
             ):
 
-                context = retrieve_context(
+                context = retrieve_program_list_context(
                     db,
                     rag_question,
                 )
@@ -1388,7 +1396,7 @@ def chat(
                 rag_question
             ):
 
-                context = retrieve_context(
+                context = retrieve_program_list_context(
                     db,
                     rag_question,
                 )
@@ -1613,7 +1621,7 @@ def chat(
         message
     ):
 
-        context = retrieve_context(
+        context = retrieve_program_list_context(
             db,
             message,
         )

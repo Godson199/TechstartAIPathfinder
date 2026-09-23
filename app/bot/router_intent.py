@@ -211,43 +211,43 @@ IMPORTANT RULES:
 
 Return ONLY valid JSON in exactly this structure:
 
-{
+{{
   "intent": "pathfinder_answer | rag_question | both | restart | casual | unclear",
   "pathfinder_answer": null,
   "rag_question": null
-}
+}}
 
 If the intent is "pathfinder_answer":
 
-{
+{{
   "intent": "pathfinder_answer",
   "pathfinder_answer": "the extracted answer",
   "rag_question": null
-}
+}}
 
 If the intent is "rag_question":
 
-{
+{{
   "intent": "rag_question",
   "pathfinder_answer": null,
   "rag_question": "the extracted TechieStart question"
-}
+}}
 
 If the intent is "both":
 
-{
+{{
   "intent": "both",
   "pathfinder_answer": "the part answering the Pathfinder",
   "rag_question": "the TechieStart question"
-}
+}}
 
 If the intent is "casual", "restart", or "unclear":
 
-{
+{{
   "intent": "casual",
   "pathfinder_answer": null,
   "rag_question": null
-}
+}}
 
 CURRENT PATHFINDER QUESTION:
 {current_question}

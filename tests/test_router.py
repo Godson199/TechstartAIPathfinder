@@ -3,6 +3,7 @@ import unittest
 from unittest.mock import patch
 
 import app.bot.router as router
+import app.bot.router_intent as router_intent
 
 
 class FakeChunk:
@@ -30,6 +31,22 @@ class FakeDB:
 
 
 class RetrieveContextTests(unittest.TestCase):
+    def test_router_prompt_formats_json_examples(self):
+        with patch.object(
+            router_intent,
+            "get_router_gemini_client",
+        ) as mock_client:
+            response = type("Response", (), {"text": '{"intent":"casual"}'})()
+            mock_client.return_value.models.generate_content.return_value = response
+
+            result = router_intent.classify_message(
+                "hello",
+                "What area of technology interests you most right now?",
+                {},
+            )
+
+        self.assertEqual(result["intent"], "casual")
+
     def test_prefers_embedding_similarity_when_terms_do_not_overlap(self):
         query = "What documents are needed to apply?"
         training_chunk = FakeChunk(
@@ -66,6 +83,25 @@ class RetrieveContextTests(unittest.TestCase):
 
         self.assertIn("Gen AI Content Creation", reply)
         self.assertIn("Front-End Web Development", reply)
+        self.assertIn("Data Analysis", reply)
+        self.assertNotIn("I am not sure about the full list of programs offered", reply)
+
+    def test_program_list_question_handles_flattened_faq_content(self):
+        faq_context = (
+            "[faq - TechieStart Overview]\n"
+            "The available tracks are: 1. Gen AI Content Creation "
+            "2. Front-End Web Development 3. AI & Machine Learning "
+            "4. Data Analysis. Each track runs for 12 weeks."
+        )
+
+        reply = router._build_program_list_reply(
+            "What programmes are available?",
+            faq_context,
+        )
+
+        self.assertIn("Gen AI Content Creation", reply)
+        self.assertIn("Front-End Web Development", reply)
+        self.assertIn("AI & Machine Learning", reply)
         self.assertIn("Data Analysis", reply)
         self.assertNotIn("I am not sure about the full list of programs offered", reply)
 

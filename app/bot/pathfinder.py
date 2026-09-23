@@ -94,18 +94,17 @@ EXIT_WORDS = {
     "leave",
 }
 
-RESTART_WORDS = {
-    "restart",
-    "start over",
-    "begin again",
-    "try again",
-    "another program",
-    "explore another program",
-    "try another program",
-    "different program",
-    "see other programs",
-    "another track",
-}
+RESTART_PATTERNS = (
+    r"\brestart\b",
+    r"\bstart\s+(?:it\s+|this\s+|the\s+(?:assessment|pathfinder|quiz|questions)\s+)?over\b",
+    r"\bstart\s+(?:the\s+)?(?:assessment|pathfinder|quiz|questions)\s+again\b",
+    r"\bbegin\s+again\b",
+    r"\btry\s+again\b",
+    r"\b(?:try|explore|see|check\s+out|look\s+at)\s+(?:another|a\s+different|other)\s+(?:program|programme|course|track|path)s?\b",
+    r"\banother\s+(?:program|programme|course|track|path)\b",
+    r"\bdifferent\s+(?:program|programme|course|track|path)\b",
+    r"\bother\s+(?:programs?|programmes?|courses?|tracks?|paths?)\b",
+)
 
 
 # ============================================================
@@ -414,7 +413,13 @@ def is_explicit_restart(
 
     lowered = message.lower().strip()
 
-    return lowered in RESTART_WORDS
+    return any(
+        re.search(
+            pattern,
+            lowered,
+        )
+        for pattern in RESTART_PATTERNS
+    )
 
 
 def wants_new_pathfinder(
@@ -612,7 +617,7 @@ def process_pathfinder_message(
             "you are ready."
         )
 
-    if lowered in RESTART_WORDS:
+    if is_explicit_restart(message):
 
         return start_pathfinder(
             db,

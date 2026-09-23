@@ -1,804 +1,1451 @@
+# TechieStart AI Pathfinder & RAG Knowledge Base
 
-# TechieStart - Frequently Asked Questions
+## 1. Purpose
 
-## Fees
+This knowledge base supports the TechieStart AI Pathfinder chatbot.
 
-**Q: Why is there a fee if it's a scholarship?**
+The chatbot has two connected capabilities:
 
-A: The ₦10,000 fee is an administrative fee, not tuition. Tuition is fully sponsored by ICL. The fee covers your seat for the full 3 months, learning materials, and Google Classroom access.
+1. **PATHFINDER** — helps participants identify the TechieStart programme that best matches their interests, experience, goals, preferred activities, work style, and learning preferences.
+2. **RAG** — answers factual questions about TechieStart, its programmes, curriculum, fees, learning process, certificates, support, and related information.
 
-**Q: Is the ₦10,000 tuition?**
-
-A: No. The ₦10,000 payment is an administrative fee. Tuition is fully sponsored by ICL.
-
-**Q: What does the ₦10,000 admin fee cover?**
-
-A: It covers your seat for the full 3 months, learning materials, and Google Classroom access.
-
-**Q: Does paying the admin fee reserve my seat?**
-
-A: Yes. Once payment is confirmed, the fee reserves your seat for the cohort.
-
-**Q: Why does TechieStart charge an admin fee?**
-
-A: The fee covers administration, your seat, learning materials, and Google Classroom access while tuition remains fully sponsored.
-
-**Q: Does the admin fee cover all 3 months?**
-
-A: Yes. The fee covers your seat for the full 3-month cohort.
+The chatbot must use factual information from this knowledge base and must not invent programme details.
 
 ---
 
-# Trust & Legitimacy
+# 2. TechieStart Overview
 
-**Q: Is TechieStart legitimate?**
+## What is TechieStart?
 
-A: Yes. TechieStart is a program of IKECHIM Consults Limited (ICL), a CAC and FIRS-registered company. Its registration can be publicly verified.
+TechieStart is a technology training programme of **IKECHIM Consults Limited (ICL)**.
 
-**Q: Who runs TechieStart?**
+ICL is registered with:
 
-A: TechieStart is a program of IKECHIM Consults Limited (ICL).
+* Corporate Affairs Commission (CAC)
+* Federal Inland Revenue Service (FIRS)
 
-**Q: Is ICL registered?**
+TechieStart provides practical technology training across several programme tracks.
 
-A: Yes. ICL is a CAC and FIRS-registered company, and its registration can be publicly verified.
-
-**Q: Can I verify ICL's registration?**
-
-A: Yes. ICL's CAC and FIRS registration can be verified publicly.
-
----
-
-# Instructors
-
-**Q: Are TechieStart instructors qualified?**
-
-A: TechieStart instructors are working professionals, including two instructors who are CPN certified.
-
-**Q: Are the instructors working professionals?**
-
-A: Yes. TechieStart is taught by working professionals with practical industry experience.
-
-**Q: Are any instructors CPN certified?**
-
-A: Yes. Two of the instructors are CPN certified.
-
----
-
-# Support
-
-**Q: What if I have a question about my payment?**
-
-A: Contact the TechieStart support line provided on the program page. A person will assist you.
-
-**Q: Is there human support?**
-
-A: Yes. If anything about your application or payment is unclear, you can contact the support line on the program page and speak with a person.
-
-**Q: What if I don't receive my Classroom link?**
-
-A: If the email has not arrived within the stated processing window, contact the TechieStart support line.
-
-**Q: What happens if there is a problem with my access?**
-
-A: If there is a delay or access problem, TechieStart will work to resolve it by getting you enrolled.
-
-**Q: Can I contact support before making payment?**
-
-A: Yes. If you need clarification about the application or payment before paying, use the TechieStart support line provided on the program page.
-
----
-
-# Enrollment
-
-**Q: What happens after I pay?**
-
-A: Once payment is confirmed, you will receive an automated email with the Google Classroom join link for your selected track.
-
-**Q: How will I receive my Google Classroom link?**
-
-A: Your Google Classroom join link will be sent by automated email after payment is confirmed.
-
-**Q: When will I receive the Classroom link?**
-
-A: The link is usually sent within the stated processing window after payment confirmation. If it has not arrived after that window, contact support.
-
-**Q: Is my seat guaranteed if there is an access delay?**
-
-A: Yes. Your seat is guaranteed, and any access issue should be resolved by getting you enrolled.
-
----
-
-# Requirements
-
-**Q: Do I need a Google account?**
-
-A: Yes. You need a Google account to accept the Google Classroom invitation.
-
-**Q: Do I need a Gmail address?**
-
-A: Yes. Use a Gmail address when registering so you can access Google Classroom.
-
-**Q: Why do I need Gmail?**
-
-A: A Google account is required to accept your Google Classroom invitation and access your track.
-
----
-
-# Learning Access
-
-**Q: Is Google Classroom included?**
-
-A: Yes. Google Classroom access is included as part of the ₦10,000 administrative fee.
-
-**Q: Are learning materials included?**
-
-A: Yes. Learning materials are included in what the ₦10,000 admin fee covers.
-
----
-
-# Refunds
-
-**Q: Is the ₦10,000 fee refundable?**
-
-A: The ₦10,000 admin fee is non-refundable once payment is confirmed.
-
-**Q: Why is the admin fee non-refundable?**
-
-A: Once confirmed, the fee reserves your seat, materials, and Google Classroom access for the cohort.
-
-**Q: Are duplicate payments refundable?**
-
-A: Yes. Refunds are issued for duplicate charges.
-
-**Q: What if I am charged twice?**
-
-A: If you are charged twice, the duplicate or erroneous charge is eligible for a refund.
-
-**Q: Are erroneous charges refundable?**
-
-A: Yes. Refunds are issued for duplicate or erroneous charges.
-
-**Q: Can I cancel after paying?**
-
-A: The ₦10,000 admin fee is non-refundable once payment is confirmed, except for duplicate or erroneous charges.
-
-**Q: Can I get a refund if I change my mind?**
-
-A: The admin fee is non-refundable once payment is confirmed, except for duplicate or erroneous charges.
-
----
-
-# Program Commitment
-
-**Q: Why does the fee reserve a seat?**
-
-A: It confirms your place in the cohort and helps ensure that participants joining intend to complete the program.
-
-**Q: Why does the fee help with cohort commitment?**
-
-A: The admin fee helps ensure that people joining the cohort intend to finish the full program.
-
-**Q: Is the fee meant to discourage people from dropping out?**
-
-A: It helps ensure that participants joining the cohort are serious about completing the program.
-
----
-
-# Program Details
-
-**Q: How long is TechieStart?**
-
-A: TechieStart runs for 3 months.
-
-**Q: How long does each track last?**
-
-A: Each listed TechieStart track runs for 3 months.
-
----
-
-# Scholarship
-
-**Q: Is tuition fully sponsored?**
-
-A: Yes. Tuition is fully sponsored by ICL.
-
-**Q: What does fully sponsored mean?**
-
-A: It means you do not pay tuition for the program. The ₦10,000 payment is an administrative fee.
-
-**Q: Does the scholarship cover tuition?**
-
-A: Yes. Tuition is fully sponsored by ICL.
-
----
-
-# Certificates
-
-**Q: When will I receive my certificate?**
-
-A: Certificates are issued by email at the end of the cohort to participants who meet the completion requirements.
-
-**Q: How do I qualify for a certificate?**
-
-A: You must complete your track's coursework and submit the final project to receive the certificate.
-
-**Q: How will my certificate be delivered?**
-
-A: Certificates are issued by email at the end of the cohort.
-
-**Q: Do I need to complete the coursework for a certificate?**
-
-A: Yes. Participants must complete their track's coursework to qualify for the certificate.
-
-**Q: Do I need to submit a final project?**
-
-A: Yes. Submitting the final project is part of the requirements for receiving the certificate.
-
-**Q: Who receives a TechieStart certificate?**
-
-A: Participants who complete their track's coursework and submit the final project receive a certificate by email at the end of the cohort.
-
-**Q: Is the certificate automatic after payment?**
-
-A: No. The certificate is issued at the end of the cohort after you complete the required coursework and submit the final project.
-
-**Q: What happens if I don't complete my coursework?**
-
-A: You may not qualify for the certificate because completion of your track's coursework is a certificate requirement.
-
-**Q: What happens if I don't submit the final project?**
-
-A: You may not qualify for the certificate because submission of the final project is required.
-
----
-
-# TechieStart Tracks
-
-**Q: What tracks, programs, programme does TechieStart offer?**
-
-A: TechieStart offers the following listed tracks:
+The available tracks are:
 
 1. Gen AI Content Creation
 2. Front-End Web Development
-3. AI & ML
+3. AI & Machine Learning
 4. Data Analysis
+
+Each track runs for:
+
+**12 weeks / 3 months**
+
+The programmes are designed to provide practical, project-based learning rather than purely theoretical instruction.
 
 ---
 
+# 3. Programme Fee
+
+## How much does TechieStart cost?
+
+Participants pay a:
+
+**₦10,000 non-refundable administrative fee**
+
+This is **not tuition**.
+
+Tuition is fully sponsored by IKECHIM Consults Limited.
+
+The ₦10,000 administrative fee covers:
+
+* Participant's seat for the full 3-month programme
+* Learning materials
+* Google Classroom access
+
+---
+
+# 4. Why is there a fee if the programme is sponsored?
+
+The programme is tuition-sponsored.
+
+The ₦10,000 payment is an administrative fee rather than tuition.
+
+It covers programme administration, the participant's seat, learning materials, and Google Classroom access.
+
+Do not describe the ₦10,000 as tuition.
+
+---
+
+# 5. Payment and Access
+
+After a participant successfully completes payment and the payment is confirmed:
+
+1. The participant receives an automated email.
+2. The email contains the Google Classroom joining link.
+3. The Google Classroom access corresponds to the selected programme track.
+
+Participants need a valid:
+
+* Gmail account
+* Google account
+
+to access Google Classroom.
+
+---
+
+# 6. Refund Policy
+
+The ₦10,000 administrative fee is generally non-refundable.
+
+However, if a participant is charged more than once because of a duplicate or erroneous transaction, the duplicate/erroneous payment may be eligible for a refund.
+
+For payment problems, participants should contact TechieStart support.
+
+---
+
+# 7. Programme Duration
+
+All TechieStart tracks run for:
+
+**12 weeks / 3 months**
+
+Participants should expect regular learning activities, practical exercises, assignments, and projects throughout the programme.
+
+---
+
+# 8. Instructors
+
+TechieStart instructors are working professionals with practical industry experience.
+
+The programme includes instructors with professional certifications, including two instructors who are **CPN certified**.
+
+When asked about instructors, describe them as working professionals and avoid inventing names, employers, qualifications, or years of experience that are not contained in the knowledge base.
+
+---
+
+# 9. Certificates
+
+Participants can receive a TechieStart certificate at the end of the cohort.
+
+Certificate requirements include:
+
+* Completing the required coursework
+* Completing the final project
+
+Certificates are delivered electronically, typically through email, at the end of the cohort.
+
+Do not tell a participant that simply paying the administrative fee automatically guarantees a certificate.
+
+---
+
+# 10. Support
+
+TechieStart provides a support channel for participant issues.
+
+Human support should handle issues involving:
+
+* Payment problems
+* Application problems
+* Access problems
+* Google Classroom access
+* Account or registration problems
+* Issues not covered by the chatbot knowledge base
+
+If the chatbot does not have enough verified information to answer a question, it should direct the participant to the TechieStart support line available on the programme page.
+
+Do not invent a support phone number or email address.
+
+---
+
+# 11. Available Programmes
+
+## 11.1 Gen AI Content Creation
+
+This programme is designed for learners interested in using generative AI for creative and professional content work.
+
+It is suitable for people interested in areas such as:
+
+* Content creation
+* Social media
+* Digital marketing
+* Branding
+* Writing
+* Graphic design
+* Photography
+* Video
+* AI tools
+* Prompt engineering
+* Creative work
+* Business content
+* Productivity using AI
+
+Coding is not the primary focus of this programme.
+
+---
+
+## 11.2 Front-End Web Development
+
+This programme focuses on creating websites and interactive web interfaces.
+
+Core technologies include:
+
+* HTML
+* CSS
+* JavaScript
+* React
+
+The programme is suitable for learners interested in:
+
+* Coding
+* Websites
+* Web applications
+* Interactive interfaces
+* Programming
+* User interfaces
+* Building digital products
+
+---
+
+## 11.3 AI & Machine Learning
+
+This programme focuses on the technical side of artificial intelligence and machine learning.
+
+Key areas include:
+
+* Machine learning foundations
+* Data preparation
+* Model training
+* Model evaluation
+* Predictive modelling
+* Intelligent systems
+* AI applications
+* Technical problem solving
+* Model deployment
+
+This track is different from Gen AI Content Creation.
+
+**Gen AI Content Creation** focuses primarily on using generative AI for creative and professional content.
+
+**AI & Machine Learning** focuses on understanding and building technical AI/ML systems.
+
+---
+
+## 11.4 Data Analysis
+
+The Data Analysis programme focuses on using data to generate useful information for decision-making.
+
+Core technologies include:
+
+* Excel
+* SQL
+* Power BI
+
+Python is introduced as a complementary skill, including:
+
+* Python fundamentals
+* NumPy
+* Pandas
+
+Learners work with data preparation, analysis, visualization, dashboards, reporting, and practical projects.
+
+The programme is suitable for beginners who want to develop practical data analysis skills.
+
+---
+
+# 12. Gen AI Content Creation Curriculum
+
+The Gen AI Content Creation programme covers the following areas:
+
+1. AI Foundations
+2. Generative AI
+3. AI Tools
+4. Prompt Engineering
+5. Writing and Content Strategy
+6. AI Image Generation
+7. AI Video Generation
+8. AI Audio, Voice and Music
+9. AI Content Workflows
+10. Branding
+11. AI Ethics and Fact-Checking
+12. Productivity with AI
+13. Business Content
+14. Portfolio Development
+15. Career and Monetization
+16. Capstone Project
+
+---
+
+# 13. Gen AI Content Creation Core Workflow
+
+A useful workflow for AI-assisted content creation is:
+
+**Think → Research → Prompt → Generate → Critique → Refine → Verify → Edit → Publish → Analyse**
+
+AI should assist the process but should not replace human judgment.
+
+Core principle:
+
+> AI generates. Human decides. Human verifies. Human takes responsibility.
+
+---
+
+# 14. Prompt Engineering Framework
+
+A useful prompt structure is:
+
+**ROLE + CONTEXT + TASK + AUDIENCE + FORMAT + TONE + EXAMPLE**
+
+A good prompt should provide enough information for the AI system to understand:
+
+* Who it should act as
+* The relevant context
+* What needs to be done
+* Who the output is for
+* What format the response should take
+* The desired tone
+* Examples where useful
+
+---
+
+# 15. Image Prompt Framework
+
+A useful image-generation prompt can contain:
+
+**Subject + Environment + Composition + Camera + Lighting + Style + Mood + Quality**
+
+---
+
+# 16. Video Prompt Framework
+
+A useful video-generation prompt can contain:
+
+**Subject + Action + Environment + Camera + Movement + Lighting + Style + Duration**
+
+---
+
+# 17. Front-End Web Development Focus
+
+The Front-End Web Development track focuses on building websites and interactive web interfaces.
+
+Key technologies:
+
+### HTML
+
+Used to structure web pages.
+
+### CSS
+
+Used to style and design web pages.
+
+### JavaScript
+
+Used to add logic and interactivity.
+
+### React
+
+Used to build modern component-based user interfaces.
+
+Learners should expect to work on practical web development projects.
+
+---
+
+# 18. AI & Machine Learning Focus
+
+The AI & ML programme introduces participants to the process of developing machine learning solutions.
+
+The learning process includes:
+
+1. Understanding the problem
+2. Preparing data
+3. Exploring data
+4. Training models
+5. Evaluating models
+6. Improving models
+7. Applying models to practical problems
+8. Understanding deployment concepts
+
+The track is appropriate for learners interested in technical AI, machine learning, predictive modelling, and intelligent systems.
+
+---
+
+# 19. Data Analysis Curriculum
+
+The Data Analysis track covers:
+
+* Excel
+* SQL
+* Power BI
+* Python
+* NumPy
+* Pandas
+* Data visualization
+* Exploratory data analysis
+* Database integration
+* Reporting
+* Automation
+* Streamlit
+
+---
+
+# 20. Excel
+
+Excel training may include:
+
+* Data entry and organization
+* Data cleaning
+* Formulas
+* Functions
+* Conditional logic
+* Lookup functions
+* Data analysis
+* Sorting and filtering
+* Pivot tables
+* Charts
+* Reporting
+* Dashboard creation
+
+---
+
+# 21. SQL
+
+SQL training focuses on working with relational databases.
+
+Key concepts include:
+
+* SELECT
+* WHERE
+* GROUP BY
+* ORDER BY
+* Aggregations
+* JOINs
+* Filtering
+* Data manipulation
+* Query-based analysis
+
+---
+
+# 22. Power BI
+
+Power BI is used to transform data into interactive reports and dashboards.
+
+Learners work with:
+
+* Data import
+* Data cleaning
+* Data transformation
+* Data modelling
+* Visualizations
+* Interactive dashboards
+* Reporting
+* Business insights
+
+---
+
+# 23. Python for Data Analysis
+
+Python is introduced as a complementary data analysis skill.
+
+Key libraries include:
+
+### NumPy
+
+Used for numerical computing and array-based operations.
+
+### Pandas
+
+Used for:
+
+* Data loading
+* Data cleaning
+* Data manipulation
+* Data transformation
+* Data analysis
+
+Python supports the broader analytical workflow but does not replace the core Excel, SQL, and Power BI components.
+
+---
+
+# 24. Data Analysis Capstone
+
+The Data Analysis capstone gives participants an opportunity to apply the skills learned throughout the programme.
+
+The capstone may involve:
+
+1. Data preparation
+2. Data cleaning
+3. Data analysis
+4. Data visualization
+5. Dashboard development
+6. Presentation
+7. Project defense
+
+The goal is to demonstrate the participant's ability to work with data and communicate useful insights.
+
+---
+
+# 25. Practical Learning Experience
+
+TechieStart is designed around practical learning.
+
+Participants should expect:
+
+* Practical exercises
+* Assignments
+* Projects
+* Feedback
+* Collaboration
+* Portfolio development
+* Final projects
+
+The exact activities depend on the programme track.
+
+---
+
+# 26. CareerForge Internship
+
+CareerForge is a supplementary internship programme associated with the broader learning ecosystem.
+
+The internship runs for:
+
+**12 weeks**
+
+The internship is structured around practical work and professional development.
+
+Typical weekly structure:
+
+### Monday
+
+Internship/project work.
+
+### Wednesday
+
+Python learning and practice.
+
+### Friday
+
+Project execution, review, and problem solving.
+
+Participants are expected to maintain professional project documentation and contribute to team projects.
+
+---
+
+# 27. CareerForge Internship Expectations
+
+Interns are expected to develop practical professional skills including:
+
+* GitHub usage
+* Project documentation
+* Weekly reporting
+* Team collaboration
+* Problem solving
+* Presentation
+* Project execution
+* Data analysis
+* Python
+* Technical communication
+
+---
+
+# 28. CareerForge Internship Teams
+
+Interns may work in teams such as:
+
+1. Data Engineering
+2. Data Analytics
+3. Data Visualization
+4. Product
+
+Each team works on practical problems and contributes to project deliverables.
+
+---
+
+# 29. CareerForge Internship Assessment
+
+The internship assessment structure is:
+
+| Assessment Area    |   Weight |
+| ------------------ | -------: |
+| Attendance         |      10% |
+| Weekly Assignments |      20% |
+| Team Collaboration |      20% |
+| GitHub             |      15% |
+| Presentation       |      15% |
+| Capstone Project   |      20% |
+| **Total**          | **100%** |
+
+---
+
+# 30. Expected Data Analytics Skills
+
+Participants working in data analytics should develop skills in:
+
+* Excel
+* SQL
+* Power BI
+* Python
+* NumPy
+* Pandas
+* Data cleaning
+* Data visualization
+* Exploratory data analysis
+* Dashboard development
+* Reporting
+* Communication of insights
+* Problem solving
+
+---
+
+# 31. Choosing a TechieStart Programme
+
+The Pathfinder should identify the programme based on the participant's responses.
+
+Do not recommend a programme simply because the participant mentions one technology.
+
+Consider the participant's complete profile:
+
+* Interests
+* Technical experience
+* Goals
+* Preferred activities
+* Preferred work type
+* Learning preferences
+* Available time
+
+---
+
+# 32. Programme Matching Signals
+
 ## Gen AI Content Creation
 
-**Q: What is the Gen AI Content Creation track?**
+Strong signals include:
 
-A: Gen AI Content Creation is a 3-month track focused on creating content with AI and taking it further through prompting, content generation, image creation, video production and editing.
-
-**Q: How long is the Gen AI Content Creation track?**
-
-A: The track runs for 3 months.
-
-**Q: What will I learn in Gen AI Content Creation?**
-
-A: You will learn prompting, AI content generation, image creation, video production and editing.
+* Content creation
+* Social media
+* Marketing
+* Branding
+* Writing
+* Graphic design
+* Photography
+* Video
+* AI tools
+* Prompting
+* Creative work
+* Business content
+* Productivity with AI
+* Little or no interest in coding
 
 ---
 
 ## Front-End Web Development
 
-**Q: What is the Front-End Web Development track?**
+Strong signals include:
 
-A: Front-End Web Development is a 3-month track focused on building responsive and interactive websites.
-
-**Q: What technologies will I learn in Front-End Web Development?**
-
-A: You will learn HTML, CSS, JavaScript and React.
-
-**Q: What will I be able to build?**
-
-A: The track focuses on building websites with responsive and interactive interfaces.
-
----
-
-## AI & ML
-
-**Q: What is the AI & ML track?**
-
-A: AI & ML is a 3-month track focused on building a foundation in machine learning.
-
-**Q: What will I learn in AI & ML?**
-
-A: You will learn how data becomes a model, including preparing data, training machine learning models, evaluating models and deploying them.
-
-**Q: Is the AI & ML track 3 months long?**
-
-A: Yes. The AI & ML track runs for 3 months.
+* Coding
+* Websites
+* Web applications
+* HTML
+* CSS
+* JavaScript
+* React
+* Programming
+* User interfaces
+* Interactive websites
+* Building digital products
 
 ---
 
-# Data Analysis Track
+## AI & Machine Learning
 
-**Q: What is the Data Analysis track?**
+Strong signals include:
 
-A: Data Analysis is a 3-month track focused on cleaning, exploring and visualizing data and turning findings into information that businesses can use.
-
-**Q: How long is the Data Analysis track?**
-
-A: The Data Analysis track runs for 3 months.
-
-**Q: What will I learn in the Data Analysis track?**
-
-A: You will learn Excel, SQL and Power BI as the core tools for data analysis. The curriculum covers data collection, cleaning, statistical analysis, querying databases, data visualization, dashboards, interpretation and reporting.
-
-**Q: What tools will I learn in Data Analysis?**
-
-A: The core tools are Microsoft Excel, SQL and Power BI. The complementary Python curriculum also introduces Python, NumPy and Pandas for data analytics.
-
-**Q: Is Data Analysis suitable for beginners?**
-
-A: The curriculum starts with an introduction to Data Analytics and Excel fundamentals before progressing to SQL and Power BI.
-
-**Q: Do I need prior experience in data analysis?**
-
-A: The curriculum begins with foundational topics such as the definition of data analytics, types of analytics, data types, data sources and Excel fundamentals.
+* Artificial intelligence
+* Machine learning
+* Predictive modelling
+* Intelligent systems
+* Technical AI
+* Data-driven models
+* Building AI applications
+* AI engineering
+* Technical problem solving
 
 ---
 
-# Excel for Data Analytics
+## Data Analysis
 
-**Q: Will I learn Excel?**
+Strong signals include:
 
-A: Yes. Excel is the first major module of the Data Analysis curriculum.
-
-**Q: What will I learn in Excel?**
-
-A: You will learn Excel fundamentals, formulas and functions, lookup functions, statistical analysis, correlation analysis, data cleaning, sorting, filtering, conditional formatting, Pivot Tables, charts, Pivot Charts and dashboard design.
-
-**Q: What Excel formulas will I learn?**
-
-A: The curriculum covers SUM, AVERAGE, COUNT, MIN, MAX and IF.
-
-**Q: Will I learn lookup functions?**
-
-A: Yes. You will learn VLOOKUP, HLOOKUP, XLOOKUP, INDEX and MATCH.
-
-**Q: Will I learn statistics in Excel?**
-
-A: Yes. You will learn mean, median, mode, standard deviation and variance.
-
-**Q: Will I learn correlation analysis?**
-
-A: Yes. The curriculum covers correlation analysis using the CORREL function.
-
-**Q: Will I learn how to clean data in Excel?**
-
-A: Yes. You will learn how to handle missing values, remove duplicates, use Find & Replace and use Text to Columns.
-
-**Q: Will I learn Pivot Tables?**
-
-A: Yes. You will learn how to create Pivot Tables, group data and summarize large datasets.
-
-**Q: Will I learn charts in Excel?**
-
-A: Yes. You will learn bar, column, line and pie charts, as well as Pivot Charts.
-
-**Q: Will I learn how to build an Excel dashboard?**
-
-A: Yes. You will learn dashboard design using charts, slicers and KPI cards.
+* Data
+* Numbers
+* Excel
+* SQL
+* Power BI
+* Dashboards
+* Reporting
+* Business analysis
+* Finding patterns
+* Decision-making
+* Data-driven insights
 
 ---
 
-# SQL for Data Analytics
+# 33. Pathfinder Questions
 
-**Q: Will I learn SQL?**
+The Pathfinder asks six main questions.
 
-A: Yes. SQL is a major part of the Data Analysis curriculum.
+## Question 1 — Interests
 
-**Q: What will I learn in SQL?**
+**What area of technology interests you most right now?**
 
-A: You will learn database fundamentals, SELECT statements, filtering, logical operators, sorting, aggregation functions, GROUP BY, HAVING, joins, subqueries, CTEs and window functions.
+Store the response as:
 
-**Q: What databases will be used for SQL?**
-
-A: The curriculum uses MySQL and PostgreSQL.
-
-**Q: What is a database?**
-
-A: The SQL module introduces databases through concepts such as tables, rows, columns and primary keys.
-
-**Q: Will I learn SELECT statements?**
-
-A: Yes. You will learn how to use SELECT to retrieve data from database tables.
-
-**Q: Will I learn WHERE?**
-
-A: Yes. The curriculum covers the WHERE clause for filtering data.
-
-**Q: Will I learn SQL operators?**
-
-A: Yes. The curriculum covers AND, OR, BETWEEN and LIKE.
-
-**Q: Will I learn SQL aggregation?**
-
-A: Yes. You will learn COUNT, SUM, AVG, MIN and MAX.
-
-**Q: Will I learn GROUP BY and HAVING?**
-
-A: Yes. You will learn how to perform grouped analysis using GROUP BY and HAVING.
-
-**Q: Will I learn SQL joins?**
-
-A: Yes. You will learn INNER JOIN, LEFT JOIN and RIGHT JOIN.
-
-**Q: Will I learn subqueries?**
-
-A: Yes. The curriculum covers nested queries and subqueries.
-
-**Q: Will I learn Common Table Expressions?**
-
-A: Yes. You will learn CTEs using the WITH clause.
-
-**Q: Will I learn SQL window functions?**
-
-A: Yes. The curriculum covers window functions including ROW_NUMBER and RANK.
+`interests`
 
 ---
 
-# Power BI
+## Question 2 — Experience
 
-**Q: Will I learn Power BI?**
+**How would you describe your current technical experience?**
 
-A: Yes. Power BI is the third major module of the Data Analysis curriculum.
+Store the response as:
 
-**Q: What will I learn in Power BI?**
-
-A: You will learn how to import data, clean and transform data using Power Query, create relationships between tables, use DAX, create visualizations and build dashboards.
-
-**Q: Will I learn Power Query?**
-
-A: Yes. Power Query is used for data cleaning and transformation.
-
-**Q: Will I learn data relationships?**
-
-A: Yes. You will learn about keys and relationships and how to link tables.
-
-**Q: Will I learn DAX?**
-
-A: Yes. The curriculum introduces DAX, including measures and calculated columns.
-
-**Q: Will I learn Power BI visualizations?**
-
-A: Yes. You will learn to create visual reports using charts and build dashboards.
-
-**Q: Will I learn Power BI dashboards?**
-
-A: Yes. Dashboard design includes slicers and filters.
+`experience`
 
 ---
 
-# Python for Data Analytics
+## Question 3 — Goals
 
-**Q: Is Python included in the Data Analytics learning programme?**
+**What would you like to achieve by the end of the programme?**
 
-A: The complementary Python for Data Analytics curriculum extends the Excel, SQL and Power BI training with Python-based analytics.
+Store the response as:
 
-**Q: What will I learn in Python?**
-
-A: You will learn Python installation, Jupyter Notebook, variables, data types, input and output, lists, tuples, sets, dictionaries, string manipulation, conditional statements, loops, functions and error handling.
-
-**Q: Will I learn NumPy?**
-
-A: Yes. NumPy topics include arrays, array operations, indexing, statistics, aggregations, broadcasting, reshaping, vectorization and mathematical operations.
-
-**Q: Will I learn Pandas?**
-
-A: Yes. You will learn Series, DataFrames, reading CSV and Excel files, missing values, duplicates, string operations, data types, filtering, sorting, grouping, aggregations, merging and joining.
-
-**Q: Will I learn data visualization with Python?**
-
-A: Yes. The curriculum covers line charts, bar charts, pie charts, histograms, heatmaps, box plots, scatter plots and correlation analysis.
-
-**Q: Can Python connect to a database?**
-
-A: Yes. The curriculum covers connecting Python to PostgreSQL, reading SQL queries into Pandas and writing data back to the database.
-
-**Q: Will I learn automation?**
-
-A: Yes. The curriculum includes Python and SQL integration, report automation and deployment.
-
-**Q: Will I learn Streamlit?**
-
-A: Yes. Streamlit basics are introduced during the capstone phase.
+`goals`
 
 ---
 
-# Practical Learning
+## Question 4 — Activities
 
-**Q: Is TechieStart mostly theoretical?**
+**Which activities sound most appealing: building, analysing, designing, organising, or helping people?**
 
-A: No. The learning approach includes exercises, assignments, projects, feedback and practical work.
+Store the response as:
 
-**Q: Will I work on projects?**
-
-A: Yes. Participants work through practical exercises and projects during the programme.
-
-**Q: Will I work with datasets?**
-
-A: Yes. The Data Analysis curriculum includes dataset selection, cleaning, querying, visualization and analysis.
-
-**Q: Will I work on a real-world dataset?**
-
-A: The Data Analysis curriculum is designed to culminate in analyzing a real-world dataset and presenting the findings through a professional dashboard and presentation.
-
-**Q: Will I build a dashboard?**
-
-A: Yes. Dashboard development is part of the Excel and Power BI curriculum and is also included in the capstone project.
-
-**Q: Will I receive feedback?**
-
-A: Yes. The programme includes opportunities for feedback on assignments and project work.
-
-**Q: Will I learn with other people?**
-
-A: Yes. Participants learn alongside other people, share ideas, ask questions, review work and learn from different perspectives.
-
-**Q: Can my projects become part of my portfolio?**
-
-A: Where applicable, projects can provide concrete work that you can discuss and potentially include in your portfolio.
+`activities`
 
 ---
 
-# Data Analysis Capstone
+## Question 5 — Work Type
 
-**Q: What is the Data Analysis capstone?**
+**What kind of work would you prefer: independent, collaborative, structured, or customer-facing?**
 
-A: The capstone is the final project where you work through a complete data analysis workflow, from defining the project goal and preparing data to analysis, visualization, dashboard development and presentation.
+Store the response as:
 
-**Q: What happens during capstone planning?**
-
-A: You select a dataset and define the goals of the project.
-
-**Q: What happens during capstone development?**
-
-A: You work through data cleaning, querying and visualization as part of the analysis workflow.
-
-**Q: What do I present at the end of the programme?**
-
-A: You present your analytical results using your dashboard and presentation slides.
-
-**Q: Will I have to defend my project?**
-
-A: Yes. The curriculum includes a final presentation and defense.
+`work_type`
 
 ---
 
-# CareerForge Internship + Python for Data Analytics
+## Question 6 — Learning Preferences
 
-**Q: Is there an internship component?**
+**How do you prefer to learn, and how much time can you give each week?**
 
-A: The complementary CareerForge internship curriculum is a 12-week programme designed to help interns use Excel, SQL, Power BI and Python to solve real business problems.
+Store the response as:
 
-**Q: How long is the internship programme?**
-
-A: The internship curriculum runs for 12 weeks.
-
-**Q: How many days per week is the internship?**
-
-A: The internship is structured around three days per week.
-
-**Q: What happens on Monday?**
-
-A: Monday is focused on internship work, team collaboration, sprint planning, task allocation and documentation.
-
-**Q: What happens on Wednesday?**
-
-A: Wednesday is focused on Python for Data Analytics classes, hands-on coding, exercises, Q&A and assignments.
-
-**Q: What happens on Friday?**
-
-A: Friday is focused on project execution, team presentations, code review, business insight presentations and performance review.
-
-**Q: Will interns use GitHub?**
-
-A: Yes. Interns are expected to maintain GitHub repositories and provide GitHub updates.
-
-**Q: Will interns submit weekly reports?**
-
-A: Yes. Weekly reports are part of the internship activities.
+`learning_preferences`
 
 ---
 
-# Internship Projects
+# 34. Pathfinder Conversation State
 
-**Q: What projects are included in the internship?**
+The Pathfinder should maintain the following state:
 
-A: The internship includes practical projects such as a student registration system, employee management system, payroll calculator, sales analysis, customer behavior analysis, retail dataset analysis, HR dataset cleaning, employee performance analysis, company sales visualization and HR analytics.
+```text
+session_id
+status
+current_question
+answers
+profile
+result
+```
 
-**Q: What is the final internship project?**
+### `session_id`
 
-A: The final capstone involves presenting a business problem, data cleaning process, SQL analysis, Python workflow, Power BI dashboard and recommendations.
+Identifies the current Pathfinder session.
 
-**Q: Will I work with databases during the internship?**
+### `status`
 
-A: Yes. The curriculum includes connecting Python to PostgreSQL, reading SQL queries into Pandas and writing data back to the database.
+Represents the current state of the Pathfinder.
 
-**Q: Will I learn deployment during the internship?**
+Possible states may include:
 
-A: Yes. The Week 12 Python curriculum includes Streamlit basics, report automation and deployment.
+* active
+* completed
+* exited
 
----
+### `current_question`
 
-# Internship Teams
+Stores the Pathfinder question currently being asked.
 
-**Q: What teams are available in the internship?**
+### `answers`
 
-A: The internship curriculum has four teams:
+Stores the participant's responses.
 
-- Data Engineering Team
-- Analytics Team
-- Visualization Team
-- Product Team
+### `profile`
 
-**Q: What does the Data Engineering Team do?**
+Stores the interpreted participant profile after enough information has been collected.
 
-A: The Data Engineering Team focuses on data cleaning, database design and ETL.
+### `result`
 
-**Q: What does the Analytics Team do?**
-
-A: The Analytics Team focuses on statistics, SQL analysis and KPI generation.
-
-**Q: What does the Visualization Team do?**
-
-A: The Visualization Team focuses on Power BI, Python visualization and storytelling.
-
-**Q: What does the Product Team do?**
-
-A: The Product Team focuses on Streamlit, deployment and documentation.
+Stores the final programme recommendation.
 
 ---
 
-# Internship Assessment
+# 35. Pathfinder Intent Types
 
-**Q: How are interns assessed?**
+Every incoming message should first be classified.
 
-A: The internship assessment includes attendance, weekly assignments, team collaboration, GitHub contributions, project presentations and the capstone project.
+Possible intents:
 
-**Q: What percentage is attendance worth?**
-
-A: Attendance is worth 10% of the internship assessment.
-
-**Q: What percentage are weekly assignments worth?**
-
-A: Weekly assignments are worth 20%.
-
-**Q: What percentage is team collaboration worth?**
-
-A: Team collaboration is worth 20%.
-
-**Q: What percentage are GitHub contributions worth?**
-
-A: GitHub contributions are worth 15%.
-
-**Q: What percentage is the project presentation worth?**
-
-A: Project presentation is worth 15%.
-
-**Q: What percentage is the capstone worth?**
-
-A: The capstone project is worth 20%.
+```text
+PATHFINDER_START
+PATHFINDER_ANSWER
+RAG_QUESTION
+MIXED
+PATHFINDER_RESTART
+PATHFINDER_EXIT
+CASUAL_CONVERSATION
+```
 
 ---
 
-# Expected Data Analytics Skills
+# 36. PATHFINDER_START
 
-**Q: What skills should I develop after completing the Data Analytics curriculum?**
+Use when the participant wants to begin finding the programme that suits them.
 
-A: The curriculum aims to develop:
+Examples:
 
-- Excel proficiency
-- SQL proficiency
-- Power BI proficiency
-- Python for analytics
-- Dashboard development
-- Database integration
-- Data storytelling
-- Portfolio-ready projects
-- A broad full-stack data analyst skill set
+* "Help me choose a programme."
+* "Which TechieStart programme is for me?"
+* "I don't know which track to choose."
+* "Can you recommend a course for me?"
 
-**Q: Will I learn data storytelling?**
-
-A: Yes. Data storytelling is part of the expected outcomes and the visualization curriculum.
-
-**Q: Will I learn how to turn data into business insights?**
-
-A: Yes. The programme focuses on analyzing data and turning findings into information that businesses can use.
-
-**Q: Will I learn how to present analytical findings?**
-
-A: Yes. The curriculum includes dashboard presentations, project presentations and a final capstone defense.
+Start the Pathfinder question sequence.
 
 ---
 
-# Choosing a Track
+# 37. PATHFINDER_ANSWER
 
-**Q: Which TechieStart track is focused on data?**
+Use when the participant is answering the currently active Pathfinder question.
 
-A: The Data Analysis track is specifically focused on data analysis, including Excel, SQL and Power BI, with complementary Python for Data Analytics content.
+The response should be stored against the appropriate Pathfinder field.
 
-**Q: Which track is focused on machine learning?**
-
-A: The AI & ML track is focused on machine learning foundations, including preparing data, training models, evaluating models and deployment.
-
-**Q: Which track is focused on web development?**
-
-A: The Front-End Web Development track focuses on HTML, CSS, JavaScript and React.
-
-**Q: Which track is focused on AI content creation?**
-
-A: The Gen AI Content Creation track focuses on prompting, content generation, image creation, video production and editing.
-
-**Q: Can I ask for help choosing a track?**
-
-A: Yes. If you are unsure which track fits your goals, contact TechieStart support for assistance.
+Do not treat unrelated factual questions as answers.
 
 ---
 
-# General Learning Experience
+# 38. RAG_QUESTION
 
-**Q: What makes TechieStart different?**
+Use when the participant asks a factual TechieStart question.
 
-A: TechieStart focuses on learning through practical experience. Participants learn from people with professional experience, practise through exercises and projects, receive feedback, build work they can show and learn alongside other participants.
+Examples:
 
-**Q: Will instructors only teach theory?**
+* "How much is the programme?"
+* "How long is the programme?"
+* "Do I need a laptop?"
+* "When will I get the certificate?"
+* "What does Data Analysis cover?"
+* "Is the ₦10,000 tuition?"
+* "How do I access Google Classroom?"
 
-A: No. The programme emphasizes practical knowledge and how concepts are used in real situations.
-
-**Q: Will I get practical assignments?**
-
-A: Yes. Exercises, assignments and projects are part of the learning process.
-
-**Q: Will I receive feedback on my work?**
-
-A: Yes. Feedback is part of the programme's learning approach.
-
-**Q: Will I build something I can show employers?**
-
-A: Where applicable, projects can provide concrete work that can be discussed as part of your portfolio.
-
-**Q: Will I collaborate with other learners?**
-
-A: Yes. The learning experience includes opportunities to share ideas, ask questions, review work and learn from other participants.
+Answer from the RAG knowledge base.
 
 ---
 
-# Important Bot Response Rules
+# 39. MIXED
 
-**Q: What if my question is not covered in the FAQ?**
+Use when a participant provides a Pathfinder answer and asks a factual question in the same message.
 
-A: If your question is about TechieStart but the answer is not available in the information provided, please contact the TechieStart support team for assistance.
+Example:
 
-**Q: Can the bot help with payment problems?**
+> "I enjoy working with data, but how much is the programme?"
 
-A: The bot can provide general information about the payment process and admin fee. For specific payment issues, duplicate charges or access problems, contact the TechieStart support line.
+The chatbot should:
 
-**Q: Can the bot verify my payment?**
+1. Save the participant's Pathfinder answer.
+2. Answer the factual RAG question.
+3. Continue with the next Pathfinder question.
 
-A: No. For payment verification or payment-specific issues, contact TechieStart support.
-
-**Q: Can the bot change my application or enrollment?**
-
-A: No. For changes to your application or enrollment, contact the TechieStart support team.
-
-**Q: Can the bot provide my Google Classroom link?**
-
-A: The Classroom link is sent automatically by email after payment confirmation. If you have not received it within the stated processing window, contact TechieStart support.
-
-**Q: What if the bot doesn't know the answer?**
-
-A: The bot should not invent an answer. If the requested information is not available in the TechieStart knowledge base, it should direct the participant to the TechieStart support line.
+Do not discard the Pathfinder answer.
 
 ---
 
-# Support Fallback
+# 40. PATHFINDER_RESTART
 
-**Q: How do I contact TechieStart support?**
+Use when the participant wants to start the Pathfinder again.
 
-A: Contact the TechieStart support line provided on the program page. A person will assist you with questions about applications, payments, enrollment or access.
+Examples:
+
+* "Start again."
+* "I want to retake the quiz."
+* "Let's restart."
+* "Ask me the questions again."
+
+Clear the relevant Pathfinder state and restart the sequence.
+
+---
+
+# 41. PATHFINDER_EXIT
+
+Use when the participant wants to stop the Pathfinder.
+
+Examples:
+
+* "Stop."
+* "Cancel."
+* "I don't want to continue."
+* "Exit."
+
+End the active Pathfinder session without producing a programme recommendation.
+
+---
+
+# 42. CASUAL_CONVERSATION
+
+Use for normal conversational messages that are not Pathfinder requests or factual TechieStart questions.
+
+Examples:
+
+* "Hi"
+* "Hello"
+* "How are you?"
+* "Thanks"
+* "Good morning"
+
+Respond naturally and briefly.
+
+---
+
+# 43. RAG Interruption During Pathfinder
+
+A participant may ask a factual question while answering Pathfinder questions.
+
+Example:
+
+> Bot: What area of technology interests you most?
+
+> Participant: Data, but is the programme free?
+
+The chatbot must:
+
+1. Recognize "Data" as the Pathfinder answer.
+2. Store it under `interests`.
+3. Answer the fee question using RAG.
+4. Continue to the next Pathfinder question.
+
+The RAG question must **not** become a Pathfinder answer.
+
+---
+
+# 44. Mixed Answer + RAG Question
+
+If a participant gives an answer and asks a factual question together:
+
+1. Extract and save the Pathfinder answer.
+2. Answer the factual question.
+3. Continue the Pathfinder.
+
+Example:
+
+> "I have some Excel experience. What exactly does the Data Analysis programme teach?"
+
+Store:
+
+```text
+experience = some Excel experience
+```
+
+Then answer the Data Analysis question from RAG.
+
+---
+
+# 45. Returning to an Interrupted Pathfinder
+
+If a participant leaves the Pathfinder and later returns:
+
+* Preserve their previous answers where possible.
+* Preserve the unanswered `current_question`.
+* Continue from the point where they stopped.
+
+Do not restart automatically unless the participant requests a restart.
+
+---
+
+# 46. Critical Pathfinder State Rule
+
+A RAG question must never overwrite the Pathfinder state.
+
+For example:
+
+```text
+current_question = activities
+```
+
+If the participant asks:
+
+> "What is the duration of the programme?"
+
+The chatbot answers the duration question but keeps:
+
+```text
+current_question = activities
+```
+
+The next Pathfinder interaction should continue from `activities`.
+
+---
+
+# 47. Pathfinder Completion
+
+After all six questions have been answered:
+
+1. Compile the participant's responses.
+2. Build the participant profile.
+3. Compare the profile against the programme matching signals.
+4. Determine the matching programme using deterministic logic.
+5. Store the result.
+6. Explain the result using relevant factual information from the RAG knowledge base.
+
+The RAG system must explain the already-determined result rather than independently changing it.
+
+---
+
+# 48. Recommendation Logic
+
+The Pathfinder should use the participant's complete responses rather than relying on one keyword.
+
+Example:
+
+A participant who says:
+
+* They enjoy numbers.
+* They like finding patterns.
+* They enjoy Excel.
+* They want to support business decisions.
+
+has strong Data Analysis signals.
+
+A participant who says:
+
+* They enjoy creating content.
+* They like social media.
+* They want to use AI for marketing.
+* They are not interested in coding.
+
+has strong Gen AI Content Creation signals.
+
+A participant who says:
+
+* They enjoy programming.
+* They want to build websites.
+* They like interactive interfaces.
+
+has strong Front-End Web Development signals.
+
+A participant who says:
+
+* They are interested in artificial intelligence.
+* They want to build predictive models.
+* They enjoy technical problem solving.
+
+has strong AI & Machine Learning signals.
+
+---
+
+# 49. Explaining Pathfinder Results
+
+When presenting the Pathfinder result:
+
+1. State the matched programme.
+2. Briefly explain why it matches the participant's responses.
+3. Mention relevant programme focus areas.
+4. Avoid claiming that the programme is universally "best."
+5. Do not invent curriculum details.
+6. Offer to explain the programme further if needed.
+
+The recommendation should be based on the participant's stated preferences, not assumptions about their identity or background.
+
+---
+
+# 50. General RAG Response Rules
+
+The RAG chatbot should:
+
+* Answer from verified information in this knowledge base.
+* Keep answers clear and practical.
+* Avoid unnecessarily long responses.
+* Use simple language.
+* Avoid inventing information.
+* Distinguish confirmed programme information from general advice.
+* Ask a clarifying question when necessary.
+* Direct users to human support when the required information is unavailable.
+
+---
+
+# 51. Unknown Information
+
+If the knowledge base does not contain the answer:
+
+Do not guess.
+
+Use a response such as:
+
+> "I don't have confirmed information about that in my current TechieStart information. Please contact the TechieStart support team through the support channel on the programme page for the correct information."
+
+Do not fabricate:
+
+* Fees
+* Dates
+* Instructor names
+* Contact details
+* Class schedules
+* Locations
+* Certificates
+* Programme requirements
+* Policies
+
+---
+
+# 52. Distinguishing Facts From General Advice
+
+The chatbot may provide general educational guidance where appropriate.
+
+However, it must clearly distinguish general advice from official TechieStart information.
+
+For example:
+
+**Official information:**
+
+> "The Data Analysis track covers Excel, SQL, Power BI, and complementary Python skills."
+
+**General advice:**
+
+> "If you are completely new to programming, you may want to start by becoming comfortable with basic computer and spreadsheet skills."
+
+Do not present general advice as an official TechieStart requirement.
+
+---
+
+# 53. Laptop and Technical Requirements
+
+Do not invent hardware requirements.
+
+If the knowledge base does not specify whether a particular device, operating system, internet speed, or software version is required, direct the participant to TechieStart support.
+
+---
+
+# 54. Programme Comparison
+
+When comparing programmes, focus on documented differences.
+
+| Programme                 | Main Focus                                              |
+| ------------------------- | ------------------------------------------------------- |
+| Gen AI Content Creation   | AI-assisted creative and professional content           |
+| Front-End Web Development | Websites and interactive web interfaces                 |
+| AI & Machine Learning     | Technical AI, machine learning and predictive modelling |
+| Data Analysis             | Data analysis, reporting and decision-making            |
+
+Do not describe one programme as universally better than another.
+
+---
+
+# 55. Gen AI vs AI & Machine Learning
+
+These programmes should not be treated as the same.
+
+### Gen AI Content Creation
+
+Focuses on:
+
+* Generative AI tools
+* Prompt engineering
+* Content
+* Images
+* Video
+* Audio
+* Branding
+* Marketing
+* Creative workflows
+
+### AI & Machine Learning
+
+Focuses on:
+
+* Machine learning
+* Data preparation
+* Model training
+* Model evaluation
+* Predictive modelling
+* Intelligent systems
+* Technical AI applications
+
+A participant interested in creative AI use may align with Gen AI Content Creation.
+
+A participant interested in building technical AI/ML systems may align with AI & Machine Learning.
+
+---
+
+# 56. Data Analysis vs AI & Machine Learning
+
+Data Analysis focuses on extracting insights from existing data.
+
+Typical tools:
+
+* Excel
+* SQL
+* Power BI
+* Python
+* NumPy
+* Pandas
+
+AI & Machine Learning focuses more heavily on building predictive or intelligent systems.
+
+Typical interests include:
+
+* Machine learning
+* Predictive modelling
+* Model training
+* Model evaluation
+* AI systems
+
+If a participant primarily wants dashboards, reports, business insights, and data-driven decision-making, Data Analysis signals are stronger.
+
+If the participant primarily wants to build predictive models and intelligent systems, AI & Machine Learning signals are stronger.
+
+---
+
+# 57. Front-End vs AI & Machine Learning
+
+Front-End Web Development focuses on creating user-facing web experiences.
+
+AI & Machine Learning focuses on developing intelligent computational systems.
+
+A participant interested in:
+
+* Websites
+* HTML
+* CSS
+* JavaScript
+* React
+* User interfaces
+
+has stronger Front-End signals.
+
+A participant interested in:
+
+* Machine learning
+* Predictive models
+* AI
+* Intelligent systems
+
+has stronger AI & ML signals.
+
+---
+
+# 58. Gen AI Content Creation vs Front-End
+
+Gen AI Content Creation is primarily creative and content-oriented.
+
+Front-End Web Development is primarily coding and web-development oriented.
+
+A participant who enjoys:
+
+* Writing
+* Design
+* Social media
+* Branding
+* AI-generated content
+
+may align with Gen AI Content Creation.
+
+A participant who enjoys:
+
+* Coding
+* Websites
+* Programming
+* Interactive interfaces
+
+may align with Front-End Web Development.
+
+---
+
+# 59. Participant Experience
+
+The chatbot should communicate that TechieStart is designed to help learners:
+
+* Learn practical technology skills.
+* Complete exercises.
+* Work on projects.
+* Build relevant skills.
+* Develop portfolio evidence.
+* Apply knowledge to practical problems.
+
+Avoid guaranteeing employment, income, promotions, or business success.
+
+---
+
+# 60. Core Chatbot Principle
+
+The chatbot should follow this architecture:
+
+```text
+USER MESSAGE
+     |
+     v
+INTENT CLASSIFICATION
+     |
+     +----------------------+
+     |                      |
+     v                      v
+PATHFINDER              RAG / GENERAL
+     |                      |
+     v                      v
+STATE MANAGEMENT        KNOWLEDGE RETRIEVAL
+     |                      |
+     v                      |
+PROFILE + MATCH             |
+     |                      |
+     +----------+-----------+
+                |
+                v
+          CLEAR RESPONSE
+```
+
+---
+
+# 61. Pathfinder + RAG Separation
+
+The Pathfinder and RAG systems have different responsibilities.
+
+### Pathfinder
+
+Responsible for:
+
+* Asking questions
+* Recording answers
+* Building the participant profile
+* Matching the participant to a programme
+* Maintaining conversation state
+
+### RAG
+
+Responsible for:
+
+* Retrieving factual programme information
+* Answering TechieStart questions
+* Explaining curriculum
+* Explaining fees
+* Explaining certificates
+* Explaining programme structure
+* Providing verified programme information
+
+RAG must not override the Pathfinder's deterministic result.
+
+---
+
+# 62. Core System Rule
+
+The chatbot should follow this principle:
+
+> **Pathfinder decides the match. RAG explains the programme.**
+
+The system should never use RAG retrieval to randomly select a programme.
+
+---
+
+# 63. Accuracy and Safety
+
+The chatbot must:
+
+* Avoid fabricated information.
+* Avoid misleading claims.
+* Avoid guarantees.
+* Avoid inventing policies.
+* Avoid inventing contact details.
+* Avoid inventing programme schedules.
+* Avoid presenting assumptions as facts.
+* Preserve Pathfinder state.
+* Answer factual questions using the knowledge base.
+* Escalate unsupported questions to human support.
+
+When information is unavailable, say so clearly.
+
+---
+
+# 64. Final Response Style
+
+Responses should generally be:
+
+* Clear
+* Friendly
+* Practical
+* Concise
+* Human-sounding
+* Helpful
+
+Avoid excessive corporate language.
+
+Avoid unnecessarily repeating information.
+
+When answering a simple question, give a simple answer.
+
+When explaining a programme or technical topic, provide enough detail to make the information useful.
+
+For Pathfinder interactions, ask one main question at a time unless a mixed message requires both an answer and a RAG response.
+
+---
+
+# 65. Final Pathfinder Flow
+
+The complete Pathfinder flow is:
+
+```text
+1. User starts Pathfinder
+        ↓
+2. Ask interests
+        ↓
+3. Ask technical experience
+        ↓
+4. Ask goals
+        ↓
+5. Ask preferred activities
+        ↓
+6. Ask preferred work type
+        ↓
+7. Ask learning preferences and available time
+        ↓
+8. Build participant profile
+        ↓
+9. Apply deterministic matching logic
+        ↓
+10. Store programme result
+        ↓
+11. Explain result using RAG knowledge
+        ↓
+12. Offer additional programme information
+```
+
+At any point, the participant may ask a factual question.
+
+When this happens:
+
+```text
+Preserve Pathfinder state
+        ↓
+Answer RAG question
+        ↓
+Return to Pathfinder
+```
+
+---
+
+# 66. Final System Principle
+
+The TechieStart AI Pathfinder should help participants understand their options without making unsupported assumptions.
+
+The system should:
+
+**Understand the participant → collect relevant information → match based on documented signals → explain the programme → provide accurate information → escalate unknown issues to human support.**

@@ -612,6 +612,36 @@ def _extract_program_list_from_context(
 
     capturing = False
 
+    def add_candidate(value: str) -> None:
+        candidate = value.strip().rstrip(":")
+        candidate = re.sub(r"\*\*", "", candidate)
+        candidate = re.split(
+            r"\s+(?:each|the|this|these|all|participants)\b",
+            candidate,
+            maxsplit=1,
+            flags=re.IGNORECASE,
+        )[0].strip().rstrip(":")
+
+        if (
+            not candidate
+            or len(candidate) > 80
+            or any(
+                token in candidate.lower()
+                for token in [
+                    "q:",
+                    "a:",
+                    "track is",
+                    "track focuses",
+                    "track runs",
+                    "program details",
+                    "choosing a track",
+                ]
+            )
+        ):
+            return
+
+        names.append(candidate)
+
     for line in lines:
 
         stripped = line.strip()
@@ -634,9 +664,38 @@ def _extract_program_list_from_context(
                 "programs available",
                 "tracks available",
             ]
+        ) or (
+            any(
+                term in lower
+                for term in [
+                    "program",
+                    "programme",
+                    "course",
+                    "track",
+                    "path",
+                ]
+            )
+            and any(
+                marker in lower
+                for marker in [
+                    "offer",
+                    "available",
+                    "include",
+                    "following",
+                ]
+            )
         ):
 
             capturing = True
+
+        inline_items = re.findall(
+            r"(?:^|\s)(?:\d+[.)]|[-*])\s+(.+?)(?=\s+(?:\d+[.)]|[-*])\s+|$)",
+            stripped,
+        )
+
+        if capturing and inline_items:
+            for item in inline_items:
+                add_candidate(item)
             continue
 
         if not capturing:
@@ -658,18 +717,7 @@ def _extract_program_list_from_context(
 
         if stripped.startswith("#"):
 
-            candidate = (
-                stripped
-                .lstrip("#")
-                .strip()
-                .rstrip(":")
-            )
-
-            if (
-                candidate
-                and len(candidate) <= 80
-            ):
-                names.append(candidate)
+            add_candidate(stripped.lstrip("#"))
 
             continue
 
@@ -681,39 +729,7 @@ def _extract_program_list_from_context(
         if not match:
             continue
 
-        candidate = (
-            match.group(1)
-            .strip()
-            .rstrip(":")
-        )
-
-        candidate = re.sub(
-            r"\*\*",
-            "",
-            candidate,
-        )
-
-        if (
-            not candidate
-            or len(candidate) > 80
-        ):
-            continue
-
-        if any(
-            token in candidate.lower()
-            for token in [
-                "q:",
-                "a:",
-                "track is",
-                "track focuses",
-                "track runs",
-                "program details",
-                "choosing a track",
-            ]
-        ):
-            continue
-
-        names.append(candidate)
+        add_candidate(match.group(1))
 
     # Deduplicate while preserving order.
     deduped = []

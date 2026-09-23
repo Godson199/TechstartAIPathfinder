@@ -2,6 +2,7 @@ import unittest
 
 from app.bot.pathfinder import (
     Program,
+    is_explicit_restart,
     is_normal_question,
     is_pathfinder_request,
     match_programs,
@@ -74,6 +75,12 @@ class PathfinderTests(unittest.TestCase):
         self.assertTrue(is_normal_question("Tell me about the registration process"))
         self.assertTrue(is_normal_question("Can I use a Gmail address?"))
         self.assertFalse(is_normal_question("I enjoy building things"))
+
+    def test_recognizes_natural_restart_requests(self):
+        self.assertTrue(is_explicit_restart("Can you restart this for me?"))
+        self.assertTrue(is_explicit_restart("I'd like to try another program please"))
+        self.assertTrue(is_explicit_restart("Please start the assessment over"))
+        self.assertFalse(is_explicit_restart("I want to try Python again"))
 
 
 if __name__ == "__main__":

@@ -26,7 +26,7 @@ ICL is registered with:
 
 TechieStart provides practical technology training across several programme tracks.
 
-The available tracks are:
+The available tracks courses or programs are:
 
 1. Gen AI Content Creation
 2. Front-End Web Development

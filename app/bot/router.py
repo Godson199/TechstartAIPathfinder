@@ -485,10 +485,36 @@ def retrieve_program_list_context(
     query: str,
 ) -> str:
 
-    return retrieve_context(
+    context = retrieve_context(
         db,
         f"{query} TechieStart available tracks programme list",
     )
+
+    list_chunks = []
+
+    for chunk in db.query(KnowledgeChunk).all():
+
+        content = chunk.content.lower()
+
+        if (
+            "available tracks" in content
+            or "available programs" in content
+            or "available programmes" in content
+        ):
+            list_chunks.append(chunk)
+
+    if not list_chunks:
+        return context
+
+    prioritized = "\n\n".join(
+        (
+            f"[{chunk.source} — {chunk.section}]\n"
+            f"{chunk.content}"
+        )
+        for chunk in list_chunks
+    )
+
+    return f"{prioritized}\n\n{context}"
 
 
 # ============================================================
@@ -700,10 +726,20 @@ def _extract_program_list_from_context(
             capturing = True
 
         if stripped.startswith("#"):
-            continue
+            # Ingested chunks may keep a heading and its body on one line.
+            # Ignore standalone headings, but parse heading-plus-list content.
+            if len(
+                re.findall(
+                    r"(?:^|\s)\d+[.)]\s+",
+                    stripped,
+                )
+            ) < 2:
+                continue
+
+            stripped = re.sub(r"^#{1,6}\s+", "", stripped)
 
         inline_items = re.findall(
-            r"(?:^|\s)(?:\d+[.)]|[-*])\s+(.+?)(?=\s+(?:\d+[.)]|[-*])\s+|$)",
+            r"(?:^|\s)\d+[.)]\s+(.+?)(?=\s+\d+[.)]\s+|$)",
             stripped,
         )
 

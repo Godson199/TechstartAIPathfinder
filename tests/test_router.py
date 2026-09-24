@@ -129,6 +129,35 @@ class RetrieveContextTests(unittest.TestCase):
         self.assertNotIn("Programme Fee", reply)
         self.assertNotIn("Explaining Pathfinder Results", reply)
 
+    def test_program_list_retrieval_prioritizes_explicit_faq_list(self):
+        list_chunk = FakeChunk(
+            source="faq",
+            section="TechieStart Overview",
+            content=(
+                "The available tracks courses or programs are: "
+                "1. Gen AI Content Creation 2. Front-End Web Development "
+                "3. AI & Machine Learning 4. Data Analysis"
+            ),
+            embedding=json.dumps([0.0, 1.0]),
+        )
+        unrelated_chunks = [
+            FakeChunk(
+                source="faq",
+                section=f"Unrelated {index}",
+                content="Programme support information.",
+                embedding=json.dumps([1.0, 0.0]),
+            )
+            for index in range(6)
+        ]
+
+        with patch.object(router, "embed", return_value=[1.0, 0.0]):
+            context = router.retrieve_program_list_context(
+                FakeDB([list_chunk, *unrelated_chunks]),
+                "What programs do you offer?",
+            )
+
+        self.assertIn(list_chunk.content, context)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -322,6 +322,116 @@ VALID_INTENTS = {
 }
 
 
+def _fallback_classify_message(
+    message: str,
+    current_question: str,
+    answers: dict,
+) -> dict:
+
+    lowered = message.strip().lower()
+    if not lowered:
+        return {
+            "intent": "unclear",
+            "pathfinder_answer": None,
+            "rag_question": None,
+        }
+
+    restart_markers = (
+        "restart",
+        "start over",
+        "begin again",
+        "try again",
+        "explore another program",
+        "another program",
+    )
+    if any(marker in lowered for marker in restart_markers):
+        return {
+            "intent": "restart",
+            "pathfinder_answer": None,
+            "rag_question": None,
+        }
+
+    if any(
+        marker in lowered
+        for marker in (
+            "interested in",
+            "like",
+            "enjoy",
+            "prefer",
+            "want",
+            "looking for",
+            "beginner",
+            "experienced",
+            "i am",
+            "i've",
+            "i have",
+            "my goal",
+            "i want",
+        )
+    ) and not message.endswith("?"):
+        return {
+            "intent": "pathfinder_answer",
+            "pathfinder_answer": message.strip(),
+            "rag_question": None,
+        }
+
+    casual_markers = (
+        "hello",
+        "hi",
+        "thanks",
+        "thank you",
+        "good morning",
+        "good evening",
+        "bye",
+        "okay",
+        "sure",
+        "yes",
+        "no",
+        "nice",
+    )
+    if any(marker in lowered for marker in casual_markers):
+        return {
+            "intent": "casual",
+            "pathfinder_answer": None,
+            "rag_question": None,
+        }
+
+    question_markers = (
+        "how much",
+        "how long",
+        "what documents",
+        "what does",
+        "what are",
+        "when",
+        "where",
+        "why",
+        "which",
+        "who",
+        "do i need",
+        "can i",
+        "could i",
+        "should i",
+        "is there",
+        "are there",
+        "tell me",
+        "how do",
+        "how can",
+        "how does",
+    )
+    if "?" in message or any(marker in lowered for marker in question_markers):
+        return {
+            "intent": "rag_question",
+            "pathfinder_answer": None,
+            "rag_question": message.strip(),
+        }
+
+    return {
+        "intent": "unclear",
+        "pathfinder_answer": None,
+        "rag_question": None,
+    }
+
+
 def _normalize_result(
     result: dict,
     original_message: str,
@@ -406,6 +516,14 @@ def classify_message(
     answers: dict,
 ) -> dict:
 
+    api_key = os.getenv("GEMINI_API_KEY", "").strip()
+    if not api_key or api_key.lower() in {"test-key", "demo", "mock", "placeholder"}:
+        return _fallback_classify_message(
+            message,
+            current_question,
+            answers,
+        )
+
     prompt = ROUTER_PROMPT.format(
         current_question=current_question,
         answers=json.dumps(
@@ -461,12 +579,17 @@ def classify_message(
             "=========================================="
         )
 
-        # Do not accidentally advance Pathfinder
-        # when the classifier fails.
-        #
-        # "unclear" is deliberately safe.
-        return {
-            "intent": "unclear",
-            "pathfinder_answer": None,
-            "rag_question": None,
-        }
+        fallback = _fallback_classify_message(
+            message,
+            current_question,
+            answers,
+        )
+
+        if fallback["intent"] == "unclear":
+            return {
+                "intent": "unclear",
+                "pathfinder_answer": None,
+                "rag_question": None,
+            }
+
+        return fallback

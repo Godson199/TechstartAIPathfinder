@@ -283,6 +283,9 @@ def embed(
     text: str,
 ) -> list[float] | None:
 
+    if not (os.getenv("API_KEY") or os.getenv("OPENAI_API_KEY")):
+        return None
+
     try:
 
         result = (
@@ -856,6 +859,60 @@ def _build_program_list_reply(
 
 
 # ============================================================
+# CURRICULUM SUPPORT FALLBACK
+# ============================================================
+
+def _curriculum_support_reply(
+    question: str,
+) -> str | None:
+
+    lowered = question.lower()
+
+    if "curriculum" not in lowered and "syllabus" not in lowered:
+        return None
+
+    program_name = None
+    for candidate in [
+        "Data Analytics",
+        "AI & ML",
+        "AI and ML",
+        "Software Development",
+        "Product Design",
+        "Front-End Web Development",
+        "Gen AI Content Creation",
+        "Data Analysis",
+        "AI & Machine Learning",
+    ]:
+        if candidate.lower() in lowered:
+            program_name = candidate
+            break
+
+    if program_name is None:
+        if any(
+            term in lowered
+            for term in [
+                "program",
+                "programme",
+                "course",
+                "track",
+                "path",
+            ]
+        ):
+            return (
+                "I am not sure about the specific curriculum details for "
+                "that program. The TechieStart support line is provided on "
+                "the program page for accurate curriculum information."
+            )
+        return None
+
+    return (
+        f"I am not sure about the specific curriculum details for the "
+        f"{program_name} program. TechieStart support line provided on the "
+        f"program page for accurate curriculum information."
+    )
+
+
+# ============================================================
 # NORMAL RAG ANSWER
 # ============================================================
 
@@ -864,6 +921,10 @@ def answer_rag_question(
     session_id: str,
     question: str,
 ) -> str:
+
+    support_reply = _curriculum_support_reply(question)
+    if support_reply:
+        return support_reply
 
     context = retrieve_context(
         db,
@@ -934,6 +995,14 @@ def answer_rag_question(
         print(
             "=================================="
         )
+
+        if context and context != "(no matching context found)":
+            return (
+                "I found a likely answer in the TechieStart materials, but "
+                "I couldn't refresh the live response right now. Please try "
+                "your question again in a moment or contact TechieStart support "
+                "for the most current information."
+            )
 
         return (
             "Sorry, I couldn't generate a response "
@@ -1151,7 +1220,32 @@ def chat(
     )
 
     # ========================================================
-    # 3. EXPLICIT RESTART
+    # 3. EXPLICIT EXIT
+    # ========================================================
+
+    if pathfinder_state and message.lower().strip() in {"exit", "quit", "stop", "cancel", "normal chat", "leave"}:
+        reply = process_pathfinder_message(
+            db,
+            payload.session_id,
+            message,
+        )
+
+        db.add(
+            ChatMessage(
+                session_id=payload.session_id,
+                role="assistant",
+                content=reply,
+            )
+        )
+
+        db.commit()
+
+        return ChatResponse(
+            reply=reply
+        )
+
+    # ========================================================
+    # 4. EXPLICIT RESTART
     #
     # This is checked before classification.
     # "restart", "start over", etc. should always restart.

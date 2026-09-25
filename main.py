@@ -16,7 +16,10 @@ os.environ.setdefault("API_PREFIX", "/api")
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
-    Base.metadata.create_all(bind=engine)
+    try:
+        Base.metadata.create_all(bind=engine)
+    except Exception as exc:
+        print("Startup database initialization failed:", type(exc).__name__, str(exc))
     yield
 
 

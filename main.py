@@ -23,6 +23,19 @@ async def lifespan(_app: FastAPI):
     yield
 
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI(title="TechieStart Chatbot RAG - Minimal API", lifespan=lifespan)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://techiestart.com"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(bot_router)
+
 app = FastAPI(title="TechieStart Chatbot RAG - Minimal API", lifespan=lifespan)
 app.include_router(bot_router)
 

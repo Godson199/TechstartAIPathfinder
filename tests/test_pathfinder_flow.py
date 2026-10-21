@@ -19,6 +19,8 @@ from fastapi.testclient import TestClient  # noqa: E402
 
 import main  # noqa: E402
 import app.bot.router as router  # noqa: E402
+from app.core.database import Base, engine  # noqa: E402
+from app.models import chat, knowledge, pathfinder  # noqa: E402
 
 BEGINNER_ANSWERS = [
     "I like building things and web development",
@@ -65,6 +67,10 @@ def _fake_gemini_response(text: str) -> MagicMock:
 
 class PathfinderFlowTests(unittest.TestCase):
     def setUp(self):
+        Base.metadata.create_all(bind=engine)
+        embed_patch = patch.object(router, "embed", return_value=None)
+        embed_patch.start()
+        self.addCleanup(embed_patch.stop)
         self.client = TestClient(main.app)
         self.client.__enter__()  # triggers the startup event (creates tables)
         self.addCleanup(self.client.__exit__, None, None, None)

@@ -32,9 +32,7 @@ question.
 import json
 import os
 import re
-from pathlib import Path
 
-from dotenv import load_dotenv
 from fastapi import APIRouter, Depends
 from openai import OpenAI
 from pydantic import BaseModel
@@ -66,12 +64,6 @@ from app.bot.router_intent import (
 # ============================================================
 # ENVIRONMENT
 # ============================================================
-
-load_dotenv(
-    Path(__file__).resolve().parents[2]
-    / ".env"
-)
-
 
 router = APIRouter()
 
@@ -314,19 +306,19 @@ def embed(
 # ============================================================
 
 def _parse_embedding(
-    value: str | None,
+    value: str | list[float] | None,
 ) -> list[float] | None:
 
     if not value:
         return None
 
-    try:
-
-        payload = json.loads(value)
-
-    except Exception:
-
-        return None
+    if isinstance(value, str):
+        try:
+            payload = json.loads(value)
+        except json.JSONDecodeError:
+            return None
+    else:
+        payload = value
 
     if (
         isinstance(payload, list)

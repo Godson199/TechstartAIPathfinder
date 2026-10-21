@@ -1,120 +1,112 @@
-# DEPLOY.md — TechieStart Chatbot (RAG) on Render
+# Deploy TechieStart Chatbot to Vercel with Neon
 
-Deployment steps for the grounded chatbot module. Assumes the module is
-already integrated into your FastAPI backend.
+## Local setup
 
-## 1. Enable pgvector on your Render Postgres
+Install the project dependencies, link the checkout to the Vercel project, and
+pull its environment variables:
 
-Render's managed Postgres supports the `vector` extension, but it must be
-enabled per-database.
-
-1. Open the Render dashboard → your Postgres instance → **Connect** → copy
-   the **External Connection String** (psql).
-2. Connect and run:
-   ```bash
-   psql "<external-connection-string>"
-   ```
-   ```sql
-   CREATE EXTENSION IF NOT EXISTS vector;
-   ```
-3. Confirm it's active:
-   ```sql
-   SELECT extname FROM pg_extension WHERE extname = 'vector';
-   ```
-
-## 2. Merge the code into your backend repo
-
-- Copy `app/bot/router.py`, `app/models/chat.py`, `app/models/knowledge.py`
-  into your existing repo structure.
-- **Do not overwrite** your existing `app/core/database.py` — just confirm
-  it exports `Base`, `SessionLocal`, `get_db` matching this module's
-  expectations.
-- Merge `requirements.txt` entries (`openai`, `pgvector`, `tiktoken`,
-  `pydantic`) into your existing `requirements.txt`.
-- Add the router mount in your main app file (e.g. `main.py`):
-  ```python
-  from app.bot.router import router as bot_router
-  app.include_router(bot_router)
-  ```
-
-## 3. Set environment variables on Render
-
-Backend service → **Environment**:
-
-| Key | Value |
-|---|---|
-| `GEMINI_API_KEY` | your Gemini key — used for chat + Pathfinder explanations |
-| Gemini model | `gemini-flash-lite-latest` |
-| `API_KEY` or `OPENAI_API_KEY` | your OpenAI/OpenRouter key — embeddings only |
-| `PATHFINDER_PROGRAM_CATALOG` | path to your program catalog (optional, defaults to `data/programs.json`) |
-
-`DATABASE_URL` should already be set from your existing deployment.
-
-See `data/programs.example.json` for the catalog schema — copy it to
-`data/programs.json` and fill in TechieStart's real program data before
-participants will get Pathfinder recommendations.
-
-## 4. Create the new tables
-
-Simplest path — add a one-off startup hook or run once via Render Shell:
-
-```bash
-# Render dashboard → your backend service → Shell
-python -c "
-from app.core.database import Base, engine
-from app.models import chat, knowledge
-Base.metadata.create_all(bind=engine)
-"
+```powershell
+pip install -r requirements.txt
+vercel link
+vercel env pull .env.local
 ```
 
-If you're using Alembic migrations for the rest of the schema, generate a
-migration instead so it stays consistent with your existing migration
-history:
+`.env.local` is gitignored. The database module reads it only for local runs.
+The schema and ingestion scripts use `DATABASE_URL_UNPOOLED` when available,
+because one-off scripts should connect directly rather than use Neon’s
+serverless pooler.
 
-```bash
-alembic revision --autogenerate -m "add chat_messages and knowledge_chunks"
-alembic upgrade head
+## Prepare Neon
+
+In the Neon SQL Editor, enable pgvector once:
+
+```sql
+CREATE EXTENSION IF NOT EXISTS vector;
 ```
 
-## 5. Add your real content and ingest it
+Create all application tables and ingest the checked-in FAQ/curriculum content
+from the repository root:
 
-Locally (against the same `DATABASE_URL` Render uses — pull it from the
-Render dashboard into your local `.env` temporarily):
-
-```bash
-pandoc participant_handbook.docx -o data/participant_handbook.md
-pandoc curriculum.docx -o data/curriculum.md
-# edit data/faq.md with your real Q&A content
-
-export DATABASE_URL="<render-external-connection-string>"
-export OPENAI_API_KEY="<your-key>"
+```powershell
+python scripts/create_tables.py
 python scripts/ingest_knowledge.py
 ```
 
-Alternatively, run it as a one-off Render Job (Render dashboard → **New** →
-**Job**, same repo/build, command `python scripts/ingest_knowledge.py`) so
-you never need to expose the external DB string locally.
+Both scripts prefer `DATABASE_URL_UNPOOLED` if Vercel supplied it in
+`.env.local`. `knowledge_chunks.embedding` is `vector(1536)`, matching the
+default `text-embedding-3-small` model. If you change `EMBEDDING_MODEL`, it
+must still return 1,536 dimensions unless you also change the model column and
+recreate/migrate the table.
 
-## 6. Deploy
+Verify ingestion in Neon SQL Editor:
 
-Push to the branch Render auto-deploys from (same as your existing
-frontend/backend split — backend on Render, frontend on Vercel). No frontend
-changes are needed; the widget already POSTs to `/api/bot/chat`.
-
-## 7. Verify
-
-```bash
-curl -X POST https://careerforge-api-i1v3.onrender.com/api/bot/chat \
-  -H "Content-Type: application/json" \
-  -d '{"session_id": "test-1", "message": "What tracks does CareerForge offer?"}'
+```sql
+SELECT source, COUNT(*) AS rows
+FROM knowledge_chunks
+GROUP BY source
+ORDER BY source;
 ```
 
-You should get back a reply grounded in your actual FAQ/handbook content —
-if it's vague or generic, double check step 5 (ingestion) actually ran
-against the right `DATABASE_URL`.
+## Vercel environment variables
 
-## Re-deploying after content updates
+The Neon Storage integration supplies `DATABASE_URL` for the deployed app and
+normally `DATABASE_URL_UNPOOLED` for scripts.
 
-No redeploy needed for content changes — just re-run
-`python scripts/ingest_knowledge.py` (locally or as a Render Job) after
-updating the markdown files in `data/`. Only code changes need a redeploy.
+| Variable | Required | Purpose |
+|---|---|---|
+| `GEMINI_API_KEY` | Yes | Gemini chat and Pathfinder intent/explanations |
+| `API_KEY` or `OPENAI_API_KEY` | Yes for ingestion/semantic retrieval | OpenAI-compatible embeddings |
+| `OPENAI_BASE_URL` | Optional | Defaults to `https://openrouter.ai/api/v1` |
+| `EMBEDDING_MODEL` | Optional | Defaults to `text-embedding-3-small` (1,536 dimensions) |
+| `PATHFINDER_PROGRAM_CATALOG` | Optional | Defaults to the committed `data/programs.json` |
+| `DATABASE_URL` | From Neon | Pooled Neon URL used by the running app |
+| `DATABASE_URL_UNPOOLED` | From Neon | Direct URL used by local maintenance scripts |
+
+Keep `data/faq.md` and `data/programs.json` committed. The app reads them using
+paths based on `__file__`, not by writing to the Vercel filesystem.
+
+## Deploy and smoke test
+
+The project’s `vercel.json` builds `main.py`; that module exports the FastAPI
+`app`, includes `bot_router`, and provides `GET /`. Schema creation is an
+explicit local task, not a serverless startup operation.
+
+Deploy:
+
+```powershell
+vercel --prod
+```
+
+Replace `<production-url>` with the deployment URL printed by Vercel:
+
+```powershell
+curl.exe https://<production-url>/
+curl.exe -X POST https://<production-url>/api/bot/chat `
+  -H "Content-Type: application/json" `
+  -d '{"message":"What programs do you offer?","session_id":"test-1"}'
+curl.exe -X POST https://<production-url>/api/bot/pathfinder/start `
+  -H "Content-Type: application/json" `
+  -d '{"session_id":"test-1"}'
+```
+
+Expected responses:
+
+- Health: `{"status":"ok","service":"TechieStart Chatbot"}`. This checks the
+  app route, not database connectivity.
+- Chat: HTTP 200 with `{"reply":"..."}`. With knowledge ingested, the reply to
+  a TechieStart information question should be grounded in the FAQ/curriculum.
+- Pathfinder start: HTTP 200 with `{"reply":"What area of technology interests
+  you most right now?"}` (the reply is JSON-escaped on one line).
+
+Common failures:
+
+- **SSL/connection errors:** confirm the Neon URL includes `sslmode=require`
+  and that the correct Neon project/database URL was pulled. The URL scheme
+  can be `postgres://` or `postgresql://`; the app rewrites it for psycopg 3.
+- **Empty or generic knowledge answers:** check the Neon row counts above,
+  then confirm ingestion used the intended `DATABASE_URL_UNPOOLED` and that
+  `data/faq.md` / curriculum files contain the expected content.
+- **Missing API-key errors:** add `GEMINI_API_KEY` for chat/Pathfinder and
+  `API_KEY` or `OPENAI_API_KEY` for embeddings/ingestion in the Vercel project.
+- **Cold-start timeout:** retry once; initial serverless startup and external
+  Gemini/embedding/database connections may take longer than warm requests.

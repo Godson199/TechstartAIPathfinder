@@ -1,4 +1,7 @@
+import os
 import unittest
+
+os.environ.setdefault("DATABASE_URL", "sqlite:///./test_pathfinder_flow.db")
 
 from app.bot.pathfinder import (
     Program,

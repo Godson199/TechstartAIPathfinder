@@ -18,13 +18,10 @@ Possible intents:
 
 import json
 import os
+import re
 
-from dotenv import load_dotenv
 from google import genai
 from google.genai import types
-
-
-load_dotenv()
 
 
 CHAT_MODEL = "gemini-flash-lite-latest"
@@ -351,51 +348,6 @@ def _fallback_classify_message(
             "rag_question": None,
         }
 
-    if any(
-        marker in lowered
-        for marker in (
-            "interested in",
-            "like",
-            "enjoy",
-            "prefer",
-            "want",
-            "looking for",
-            "beginner",
-            "experienced",
-            "i am",
-            "i've",
-            "i have",
-            "my goal",
-            "i want",
-        )
-    ) and not message.endswith("?"):
-        return {
-            "intent": "pathfinder_answer",
-            "pathfinder_answer": message.strip(),
-            "rag_question": None,
-        }
-
-    casual_markers = (
-        "hello",
-        "hi",
-        "thanks",
-        "thank you",
-        "good morning",
-        "good evening",
-        "bye",
-        "okay",
-        "sure",
-        "yes",
-        "no",
-        "nice",
-    )
-    if any(marker in lowered for marker in casual_markers):
-        return {
-            "intent": "casual",
-            "pathfinder_answer": None,
-            "rag_question": None,
-        }
-
     question_markers = (
         "how much",
         "how long",
@@ -417,6 +369,18 @@ def _fallback_classify_message(
         "how do",
         "how can",
         "how does",
+        "fee",
+        "cost",
+        "tuition",
+        "refund",
+        "payment",
+        "registration",
+        "certificate",
+        "curriculum",
+        "program details",
+        "programme details",
+        "course details",
+        "support",
     )
     if "?" in message or any(marker in lowered for marker in question_markers):
         return {
@@ -425,9 +389,57 @@ def _fallback_classify_message(
             "rag_question": message.strip(),
         }
 
+    if any(
+        marker in lowered
+        for marker in (
+            "interested in",
+            "like",
+            "enjoy",
+            "prefer",
+            "want",
+            "looking for",
+            "beginner",
+            "experienced",
+            "i am",
+            "i've",
+            "i have",
+            "my goal",
+            "i want",
+        )
+    ):
+        return {
+            "intent": "pathfinder_answer",
+            "pathfinder_answer": message.strip(),
+            "rag_question": None,
+        }
+
+    casual_markers = (
+        "hello",
+        "hi",
+        "thanks",
+        "thank you",
+        "good morning",
+        "good evening",
+        "bye",
+        "okay",
+        "sure",
+        "yes",
+        "no",
+        "nice",
+    )
+    casual_pattern = r"\b(?:" + "|".join(
+        re.escape(marker) for marker in casual_markers
+    ) + r")\b"
+    if re.search(casual_pattern, lowered):
+        return {
+            "intent": "casual",
+            "pathfinder_answer": None,
+            "rag_question": None,
+        }
+
     return {
-        "intent": "unclear",
-        "pathfinder_answer": None,
+        "intent": "pathfinder_answer",
+        "pathfinder_answer": message.strip(),
         "rag_question": None,
     }
 

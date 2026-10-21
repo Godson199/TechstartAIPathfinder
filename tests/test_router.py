@@ -1,6 +1,9 @@
 import json
+import os
 import unittest
 from unittest.mock import patch
+
+os.environ.setdefault("DATABASE_URL", "sqlite:///./test_pathfinder_flow.db")
 
 import app.bot.router as router
 import app.bot.router_intent as router_intent
@@ -31,6 +34,12 @@ class FakeDB:
 
 
 class RetrieveContextTests(unittest.TestCase):
+    def test_parse_embedding_accepts_pgvector_list_values(self):
+        self.assertEqual(
+            router._parse_embedding([1.0, 0.5]),
+            [1.0, 0.5],
+        )
+
     def test_router_prompt_formats_json_examples(self):
         with patch.object(
             router_intent,
@@ -46,6 +55,38 @@ class RetrieveContextTests(unittest.TestCase):
             )
 
         self.assertEqual(result["intent"], "casual")
+
+    def test_fallback_classifies_plain_pathfinder_answers(self):
+        answers = (
+            "I like building things and web development",
+            "become a junior developer",
+            "collaborative",
+            "video lessons, about 5 hours a week",
+        )
+
+        with patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}):
+            results = [
+                router_intent.classify_message(
+                    answer,
+                    "What would you like to achieve?",
+                    {},
+                )
+                for answer in answers
+            ]
+
+        self.assertTrue(
+            all(result["intent"] == "pathfinder_answer" for result in results)
+        )
+
+    def test_fallback_preserves_pathfinder_for_faq_questions(self):
+        with patch.dict(os.environ, {"GEMINI_API_KEY": "test-key"}):
+            result = router_intent.classify_message(
+                "How much is the registration fee?",
+                "What area of technology interests you most?",
+                {},
+            )
+
+        self.assertEqual(result["intent"], "rag_question")
 
     def test_prefers_embedding_similarity_when_terms_do_not_overlap(self):
         query = "What documents are needed to apply?"

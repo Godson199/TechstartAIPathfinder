@@ -216,7 +216,7 @@ def load_program_catalog() -> tuple[Program, ...]:
     )
 
     if configured_path and not catalog_path.is_absolute():
-        catalog_path = Path.cwd() / catalog_path
+        catalog_path = Path(__file__).resolve().parents[2] / catalog_path
 
     if not catalog_path.exists():
         return ()

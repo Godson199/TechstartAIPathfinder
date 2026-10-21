@@ -1,27 +1,25 @@
-"""
-Database setup.
-
-NOTE: If your existing FastAPI backend already has an app/core/database.py
-(you should — this is the CareerForge backend on Render), do NOT overwrite
-it with this file. Just make sure it exports `Base`, `SessionLocal`, and a
-`get_db` dependency, matching the shape below, and import from your own file
-instead of this one.
-"""
 import os
 from pathlib import Path
 
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
+from sqlalchemy.pool import NullPool
 
-load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
-DATABASE_URL = os.getenv(
-    "DATABASE_URL",
-    "sqlite:////tmp/techiestart.db",
-)
+if not os.getenv("VERCEL"):
+    load_dotenv(Path(__file__).resolve().parents[2] / ".env.local")
 
-engine_kwargs = {}
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise RuntimeError("DATABASE_URL must be set in the environment.")
+
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = "postgresql+psycopg://" + DATABASE_URL[len("postgres://"):]
+elif DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = "postgresql+psycopg://" + DATABASE_URL[len("postgresql://"):]
+
+engine_kwargs = {"poolclass": NullPool}
 if DATABASE_URL.startswith("sqlite"):
     engine_kwargs["connect_args"] = {"check_same_thread": False}
 

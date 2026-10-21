@@ -1,4 +1,4 @@
-# TechieStart Chatbot — RAG Module
+# TechieStart Chatbot — Vercel + Neon
 
 Grounded chatbot module: answers only from your FAQ and program information
 (no improvising on fees, policies, or program details).
@@ -7,14 +7,15 @@ Grounded chatbot module: answers only from your FAQ and program information
 
 ```
 app/
-  core/database.py     # DB setup — merge into your existing one, don't overwrite
+  core/database.py     # psycopg 3 + Neon database setup
   models/chat.py        # conversation history table
   models/knowledge.py   # embedded knowledge chunks table (pgvector)
   models/pathfinder.py   # AI Pathfinder session state table
   bot/router.py          # /api/bot/chat + /api/bot/pathfinder/start (RAG + Gemini)
   bot/pathfinder.py      # Pathfinder questions, session state, matching engine
 scripts/
-  ingest_knowledge.py    # chunks + embeds your docs into Postgres
+  create_tables.py       # creates chat, knowledge, and Pathfinder tables
+  ingest_knowledge.py    # batches embeddings into Neon
 data/
   faq.md                     # template — replace with your real FAQ
   programs.example.json      # schema template for the Pathfinder's program catalog — copy to programs.json and fill in real data
@@ -24,30 +25,35 @@ tests/                   # unit + integration tests — run with `pytest`
 
 ## Setup steps
 
-1. **Merge files into your existing FastAPI backend repo**, replacing the
-   current `app/bot/` FAQ logic. Keep your existing `app/core/database.py`
-   if you already have one — just make sure it exposes `Base`,
-   `SessionLocal`, and `get_db` as shown here.
+1. Use this repository as the Vercel FastAPI project. `main.py` exports
+   `app` and mounts the bot routes.
 
 2. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Enable pgvector on your Render Postgres** (run once, via psql or a
-   migration):
+3. **Link this local checkout to Vercel and pull environment variables:**
+   ```bash
+   vercel link
+   vercel env pull .env.local
+   ```
+   Keep `.env.local` private; it is gitignored. The table-creation and
+   ingestion scripts prefer `DATABASE_URL_UNPOOLED` when it is available.
+
+4. **Enable pgvector in the Neon SQL Editor** (run once):
    ```sql
    CREATE EXTENSION IF NOT EXISTS vector;
    ```
 
-4. **Create the tables** (Alembic migration, or quick-and-dirty for now):
-   ```python
-   from app.core.database import Base, engine
-   from app.models import chat, knowledge
-   Base.metadata.create_all(bind=engine)
+5. **Create the tables** after pulling your Vercel environment:
+   ```bash
+   python scripts/create_tables.py
    ```
+   The script registers `chat`, `knowledge`, and `pathfinder` before creating
+   tables, including `pathfinder_sessions`.
 
-5. **Add your real content** to `data/`:
+6. **Add your real content** to `data/`:
    ```bash
    pandoc participant_handbook.docx -o data/participant_handbook.md
    pandoc curriculum.docx -o data/curriculum.md
@@ -58,28 +64,38 @@ tests/                   # unit + integration tests — run with `pytest`
    optional `Category` columns are imported automatically. See `data/README.md`
    for the complete document drop zone.
 
-6. **Set environment variables** (Render dashboard):
+7. **Set environment variables** in Vercel:
    - `GEMINI_API_KEY` — chat model (conversation + Pathfinder explanations)
    - Gemini chat uses stable `gemini-flash-lite-latest`
    - `API_KEY` or `OPENAI_API_KEY` — embeddings only, via OpenRouter/OpenAI
    - `OPENAI_BASE_URL` (optional, defaults to OpenRouter)
    - `EMBEDDING_MODEL` (optional, defaults to `text-embedding-3-small`)
    - `PATHFINDER_PROGRAM_CATALOG` (optional, defaults to `data/programs.json`)
-   - `DATABASE_URL` (you already have this)
+   - `DATABASE_URL` (provided by the Neon integration)
+   - `DATABASE_URL_UNPOOLED` (provided by the Neon integration; used by local
+     maintenance scripts when present)
 
-7. **Run ingestion** (locally against your Render Postgres, or as a one-off
-   Render job):
+8. **Run ingestion** locally against Neon:
    ```bash
    python scripts/ingest_knowledge.py
    ```
+   This submits embeddings in batches and checks that each vector has 1,536
+   values, matching `Vector(1536)`. Verify insertion in Neon SQL Editor:
+   ```sql
+   SELECT source, COUNT(*) AS rows
+   FROM knowledge_chunks
+   GROUP BY source
+   ORDER BY source;
+   ```
+   A non-zero count should appear for each source file found in `data/`.
 
-8. **Mount the router** in your main FastAPI app:
+9. **Mount the router** in your main FastAPI app:
    ```python
    from app.bot.router import router as bot_router
    app.include_router(bot_router)
    ```
 
-9. **Redeploy.** Your existing frontend widget doesn't need changes — it
+10. **Deploy.** Your existing frontend widget doesn't need changes — it
    already POSTs `{ message, session_id }` to `/api/bot/chat` and expects
    `{ reply }` back.
 
